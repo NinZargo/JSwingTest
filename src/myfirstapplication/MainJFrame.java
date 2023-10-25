@@ -4,6 +4,15 @@
  */
 package myfirstapplication;
 
+import java.awt.*;
+import java.awt.event.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.*;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle;
+import javax.swing.border.*;
+
 /**
  *
  * @author ethan
@@ -13,15 +22,25 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+
+
+
+
+    private void jClientInfo(ActionEvent e) {
+        // TODO add your code here
+    }
+
     public MainJFrame() {
         initComponents();
         
         theHeadOfficeBranch = new Branch();
         
         theUser = new User();
+
+        BankClients = new CustomerList();
         
         // Tab Code
-        jTabInMemory = new java.awt.Component[3];
+        jTabInMemory = new java.awt.Component[5];
         
         for(int i = 0; i < (jMainTabbedPane.getTabCount() + 1); i++){
             jTabInMemory[i] = (jMainTabbedPane.getComponentAt(1));
@@ -39,512 +58,680 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Generated using JFormDesigner Evaluation license - Ethan Deeley
     private void initComponents() {
+        jMenuBarMain = new JMenuBar();
+        jMenu1 = new JMenu();
+        jMenu2 = new JMenu();
+        jMainPanel = new JPanel();
+        jStatusPanel = new JPanel();
+        jStatusMessageLabel = new JLabel();
+        jStatusAnimationLabel = new JLabel();
+        jProgressCompletionBar = new JProgressBar();
+        jMainTabbedPane = new JTabbedPane();
+        jLoginPanel = new JPanel();
+        jNameLabel = new JLabel();
+        jNameTextField = new JTextField();
+        jLoginButton = new JButton();
+        jPasswordLabel = new JLabel();
+        jPasswordTextField = new JTextField();
+        jRegisterButton = new JButton();
+        jLogOutButton = new JButton();
+        jCalculatorPanel = new JPanel();
+        jInput1Label = new JLabel();
+        jInput2Label = new JLabel();
+        jOutputLabel = new JLabel();
+        jInput1TextField = new JTextField();
+        jInput2TextField = new JTextField();
+        jOutputTextField = new JTextField();
+        jAddButton = new JButton();
+        jSubtractButton = new JButton();
+        jMultButton = new JButton();
+        jDivButton = new JButton();
+        jPowerButton = new JButton();
+        jCylinderVolumeButton = new JButton();
+        jSphereVolumeButton = new JButton();
+        jPyramidVolumeButton = new JButton();
+        jHeadOfficePanel = new JPanel();
+        jHeadOfficeButton = new JButton();
+        jHeadOfficeTextArea = new JTextArea();
+        jEditHeadOfficePanel = new JPanel();
+        JNameEditLabel = new JLabel();
+        jNameEditTextField = new JTextField();
+        jOpeningHoursEditLabel = new JLabel();
+        jOpeningHoursEditTextField = new JTextField();
+        jHouseNoEditLabel = new JLabel();
+        jStreetEditLabel = new JLabel();
+        jCityEditLabel = new JLabel();
+        jPostcodeEditLabel = new JLabel();
+        jCountryEditLabel = new JLabel();
+        jHouseNoEditTextField = new JTextField();
+        jStreetEditTextField = new JTextField();
+        jCityEditTextField = new JTextField();
+        jPostCodeEditTextField = new JTextField();
+        jCountryEditTextField = new JTextField();
+        jButton1 = new JButton();
+        jClientListPanel = new JPanel();
+        jClientInfoButton = new JButton();
+        scrollPane1 = new JScrollPane();
+        jClientInfoTextArea = new JTextArea();
+        jAddClientPanel = new JPanel();
+        jFnameLabel = new JLabel();
+        jSnameLabel = new JLabel();
+        jFnameTextField = new JTextField();
+        jSnameTextField = new JTextField();
+        jDOBLabel = new JLabel();
+        jDOBTextField = new JTextField();
+        jHouseNumLabel = new JLabel();
+        jHouseNumTextField = new JTextField();
+        jStreetLabel = new JLabel();
+        jStreetTextField = new JTextField();
+        jTownLabel = new JLabel();
+        jPostCodeLabel = new JLabel();
+        jTownTextField = new JTextField();
+        jPostCodeTextField = new JTextField();
+        jCountryLabel = new JLabel();
+        jCountryTextField = new JTextField();
+        jSaveButton = new JButton();
 
-        jMainPanel = new javax.swing.JPanel();
-        jStatusPanel = new javax.swing.JPanel();
-        jStatusMessageLabel = new javax.swing.JLabel();
-        jStatusAnimationLabel = new javax.swing.JLabel();
-        jProgressCompletionBar = new javax.swing.JProgressBar();
-        jMainTabbedPane = new javax.swing.JTabbedPane();
-        jLoginPanel = new javax.swing.JPanel();
-        jNameLabel = new javax.swing.JLabel();
-        jNameTextField = new javax.swing.JTextField();
-        jLoginButton = new javax.swing.JButton();
-        jPasswordLabel = new javax.swing.JLabel();
-        jPasswordTextField = new javax.swing.JTextField();
-        jRegisterButton = new javax.swing.JButton();
-        jLogOutButton = new javax.swing.JButton();
-        jCalculatorPanel = new javax.swing.JPanel();
-        jInput1Label = new javax.swing.JLabel();
-        jInput2Label = new javax.swing.JLabel();
-        jOutputLabel = new javax.swing.JLabel();
-        jInput1TextField = new javax.swing.JTextField();
-        jInput2TextField = new javax.swing.JTextField();
-        jOutputTextField = new javax.swing.JTextField();
-        jAddButton = new javax.swing.JButton();
-        jSubtractButton = new javax.swing.JButton();
-        jMultButton = new javax.swing.JButton();
-        jDivButton = new javax.swing.JButton();
-        jPowerButton = new javax.swing.JButton();
-        jCylinderVolumeButton = new javax.swing.JButton();
-        jSphereVolumeButton = new javax.swing.JButton();
-        jPyramidVolumeButton = new javax.swing.JButton();
-        jHeadOfficePanel = new javax.swing.JPanel();
-        jHeadOfficeButton = new javax.swing.JButton();
-        jHeadOfficeTextArea = new javax.swing.JTextArea();
-        jEditHeadOfficePanel = new javax.swing.JPanel();
-        JNameEditLabel = new javax.swing.JLabel();
-        jNameEditTextField = new javax.swing.JTextField();
-        jOpeningHoursEditLabel = new javax.swing.JLabel();
-        jOpeningHoursEditTextField = new javax.swing.JTextField();
-        jHouseNoEditLabel = new javax.swing.JLabel();
-        jStreetEditLabel = new javax.swing.JLabel();
-        jCityEditLabel = new javax.swing.JLabel();
-        jPostcodeEditLabel = new javax.swing.JLabel();
-        jCountryEditLabel = new javax.swing.JLabel();
-        jHouseNoEditTextField = new javax.swing.JTextField();
-        jStreetEditTextField = new javax.swing.JTextField();
-        jCityEditTextField = new javax.swing.JTextField();
-        jPostCodeEditTextField = new javax.swing.JTextField();
-        jCountryEditTextField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jMenuBarMain = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        //======== this ========
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new Color(0x4a4a48));
+        var contentPane = getContentPane();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(74, 74, 72));
+        //======== jMenuBarMain ========
+        {
+            jMenuBarMain.setBackground(new Color(0x4a4a48));
+            jMenuBarMain.setBorder(new LineBorder(new Color(0x4a4a48)));
+            jMenuBarMain.setForeground(new Color(0x566246));
 
-        jStatusPanel.setBackground(new java.awt.Color(74, 74, 72));
-        jStatusPanel.setBorder(javax.swing.BorderFactory.createLineBorder(null));
-        jStatusPanel.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-
-        jStatusMessageLabel.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        jStatusMessageLabel.setText("My First Application is running.");
-
-        jStatusAnimationLabel.setText("jLabel2");
-
-        javax.swing.GroupLayout jStatusPanelLayout = new javax.swing.GroupLayout(jStatusPanel);
-        jStatusPanel.setLayout(jStatusPanelLayout);
-        jStatusPanelLayout.setHorizontalGroup(
-            jStatusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jStatusPanelLayout.createSequentialGroup()
-                .addGroup(jStatusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jStatusMessageLabel)
-                    .addComponent(jStatusAnimationLabel)
-                    .addComponent(jProgressCompletionBar, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 174, Short.MAX_VALUE))
-        );
-        jStatusPanelLayout.setVerticalGroup(
-            jStatusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jStatusPanelLayout.createSequentialGroup()
-                .addComponent(jStatusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jStatusAnimationLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jProgressCompletionBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 35, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jMainPanelLayout = new javax.swing.GroupLayout(jMainPanel);
-        jMainPanel.setLayout(jMainPanelLayout);
-        jMainPanelLayout.setHorizontalGroup(
-            jMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jMainPanelLayout.createSequentialGroup()
-                .addComponent(jStatusPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jMainPanelLayout.setVerticalGroup(
-            jMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jMainPanelLayout.createSequentialGroup()
-                .addComponent(jStatusPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 246, Short.MAX_VALUE))
-        );
-
-        jNameLabel.setText("Name:");
-        jNameLabel.setToolTipText("");
-
-        jLoginButton.setText("Login");
-        jLoginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jLoginButtonActionPerformed(evt);
+            //======== jMenu1 ========
+            {
+                jMenu1.setBackground(new Color(0x000041));
+                jMenu1.setText("File");
             }
-        });
+            jMenuBarMain.add(jMenu1);
 
-        jPasswordLabel.setText("Password:");
-
-        jRegisterButton.setText("Register");
-        jRegisterButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRegisterButtonActionPerformed(evt);
+            //======== jMenu2 ========
+            {
+                jMenu2.setText("Edit");
             }
-        });
-
-        jLogOutButton.setText("Log Out");
-        jLogOutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jLogOutButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jLoginPanelLayout = new javax.swing.GroupLayout(jLoginPanel);
-        jLoginPanel.setLayout(jLoginPanelLayout);
-        jLoginPanelLayout.setHorizontalGroup(
-            jLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLoginPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jNameLabel)
-                .addGap(264, 264, 264))
-            .addGroup(jLoginPanelLayout.createSequentialGroup()
-                .addGroup(jLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jLoginPanelLayout.createSequentialGroup()
-                        .addGap(209, 209, 209)
-                        .addComponent(jNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jLoginPanelLayout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(jPasswordLabel))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLoginPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLoginPanelLayout.createSequentialGroup()
-                                .addComponent(jLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRegisterButton))
-                            .addComponent(jPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 213, Short.MAX_VALUE))
-            .addGroup(jLoginPanelLayout.createSequentialGroup()
-                .addGap(241, 241, 241)
-                .addComponent(jLogOutButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jLoginPanelLayout.setVerticalGroup(
-            jLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLoginPanelLayout.createSequentialGroup()
-                .addComponent(jNameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLoginButton)
-                    .addComponent(jRegisterButton))
-                .addGap(18, 18, 18)
-                .addComponent(jLogOutButton)
-                .addGap(0, 301, Short.MAX_VALUE))
-        );
-
-        jMainTabbedPane.addTab("Login", jLoginPanel);
-
-        jInput1Label.setText("Input 1");
-
-        jInput2Label.setText("Input 2");
-
-        jOutputLabel.setText("Output");
-
-        jInput1TextField.setText("0.0");
-        jInput1TextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jInput1TextFieldActionPerformed(evt);
-            }
-        });
-
-        jInput2TextField.setText("0.0");
-
-        jOutputTextField.setText("0.0");
-        jOutputTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jOutputTextFieldActionPerformed(evt);
-            }
-        });
-
-        jAddButton.setText("+");
-        jAddButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jAddButtonActionPerformed(evt);
-            }
-        });
-
-        jSubtractButton.setText("-");
-        jSubtractButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jSubtractButtonActionPerformed(evt);
-            }
-        });
-
-        jMultButton.setText("*");
-        jMultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMultButtonActionPerformed(evt);
-            }
-        });
-
-        jDivButton.setText("/");
-        jDivButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jDivButtonActionPerformed(evt);
-            }
-        });
-
-        jPowerButton.setText("X^y");
-        jPowerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPowerButtonActionPerformed(evt);
-            }
-        });
-
-        jCylinderVolumeButton.setText("Cylinder Vol");
-        jCylinderVolumeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCylinderVolumeButtonActionPerformed(evt);
-            }
-        });
-
-        jSphereVolumeButton.setText("Sphere Vol");
-        jSphereVolumeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jSphereVolumeButtonActionPerformed(evt);
-            }
-        });
-
-        jPyramidVolumeButton.setText("Pyramid Vol");
-        jPyramidVolumeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPyramidVolumeButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jCalculatorPanelLayout = new javax.swing.GroupLayout(jCalculatorPanel);
-        jCalculatorPanel.setLayout(jCalculatorPanelLayout);
-        jCalculatorPanelLayout.setHorizontalGroup(
-            jCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCalculatorPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jCalculatorPanelLayout.createSequentialGroup()
-                        .addGroup(jCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jCalculatorPanelLayout.createSequentialGroup()
-                                .addComponent(jInput2Label)
-                                .addGap(18, 18, 18)
-                                .addComponent(jInput2TextField))
-                            .addGroup(jCalculatorPanelLayout.createSequentialGroup()
-                                .addComponent(jInput1Label)
-                                .addGap(18, 18, 18)
-                                .addComponent(jInput1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jCalculatorPanelLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jSubtractButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)))
-                        .addGroup(jCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jCalculatorPanelLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jOutputLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(jOutputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jCalculatorPanelLayout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jMultButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(72, 72, 72)
-                                .addComponent(jDivButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jCalculatorPanelLayout.createSequentialGroup()
-                        .addComponent(jPowerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jCylinderVolumeButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSphereVolumeButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPyramidVolumeButton)))
-                .addContainerGap(96, Short.MAX_VALUE))
-        );
-        jCalculatorPanelLayout.setVerticalGroup(
-            jCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCalculatorPanelLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jInput1Label)
-                    .addComponent(jOutputLabel)
-                    .addComponent(jInput1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jOutputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jInput2Label)
-                    .addComponent(jInput2TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jAddButton)
-                    .addComponent(jSubtractButton)
-                    .addComponent(jMultButton)
-                    .addComponent(jDivButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPowerButton)
-                    .addComponent(jCylinderVolumeButton)
-                    .addComponent(jSphereVolumeButton)
-                    .addComponent(jPyramidVolumeButton))
-                .addContainerGap(313, Short.MAX_VALUE))
-        );
-
-        jMainTabbedPane.addTab("Calculator", jCalculatorPanel);
-
-        jHeadOfficeButton.setText("Display");
-        jHeadOfficeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jHeadOfficeButtonActionPerformed(evt);
-            }
-        });
-
-        jHeadOfficeTextArea.setColumns(20);
-        jHeadOfficeTextArea.setRows(5);
-
-        javax.swing.GroupLayout jHeadOfficePanelLayout = new javax.swing.GroupLayout(jHeadOfficePanel);
-        jHeadOfficePanel.setLayout(jHeadOfficePanelLayout);
-        jHeadOfficePanelLayout.setHorizontalGroup(
-            jHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jHeadOfficePanelLayout.createSequentialGroup()
-                .addGroup(jHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jHeadOfficePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jHeadOfficeTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jHeadOfficePanelLayout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(jHeadOfficeButton)))
-                .addContainerGap(220, Short.MAX_VALUE))
-        );
-        jHeadOfficePanelLayout.setVerticalGroup(
-            jHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jHeadOfficePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jHeadOfficeTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jHeadOfficeButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jMainTabbedPane.addTab("HeadOffice", jHeadOfficePanel);
-
-        JNameEditLabel.setText("Name");
-
-        jOpeningHoursEditLabel.setText("Opening Hours");
-
-        jHouseNoEditLabel.setText("House No");
-
-        jStreetEditLabel.setText("Street");
-
-        jCityEditLabel.setText("City");
-
-        jPostcodeEditLabel.setText("Postcode");
-
-        jCountryEditLabel.setText("Country");
-
-        jStreetEditTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jStreetEditTextFieldActionPerformed(evt);
-            }
-        });
-
-        jPostCodeEditTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPostCodeEditTextFieldActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jEditHeadOfficePanelLayout = new javax.swing.GroupLayout(jEditHeadOfficePanel);
-        jEditHeadOfficePanel.setLayout(jEditHeadOfficePanelLayout);
-        jEditHeadOfficePanelLayout.setHorizontalGroup(
-            jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
-                .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
-                        .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jOpeningHoursEditLabel))
-                            .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(JNameEditLabel)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jNameEditTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                            .addComponent(jOpeningHoursEditTextField))
-                        .addGap(35, 35, 35)
-                        .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jHouseNoEditLabel)
-                            .addComponent(jStreetEditLabel)
-                            .addComponent(jCityEditLabel)
-                            .addComponent(jPostcodeEditLabel)
-                            .addComponent(jCountryEditLabel)))
-                    .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(10, 10, 10)))
-                .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jCountryEditTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(jPostCodeEditTextField)
-                    .addComponent(jCityEditTextField)
-                    .addComponent(jStreetEditTextField)
-                    .addComponent(jHouseNoEditTextField))
-                .addContainerGap(84, Short.MAX_VALUE))
-        );
-        jEditHeadOfficePanelLayout.setVerticalGroup(
-            jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JNameEditLabel)
-                    .addComponent(jHouseNoEditLabel)
-                    .addComponent(jNameEditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jHouseNoEditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jOpeningHoursEditLabel)
-                    .addComponent(jOpeningHoursEditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jStreetEditLabel)
-                    .addComponent(jStreetEditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCityEditLabel)
-                    .addComponent(jCityEditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPostcodeEditLabel)
-                    .addComponent(jPostCodeEditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCountryEditLabel)
-                    .addComponent(jCountryEditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(jButton1)
-                .addContainerGap(235, Short.MAX_VALUE))
-        );
-
-        jMainTabbedPane.addTab("Edit Head Office", jEditHeadOfficePanel);
-
-        jMenuBarMain.setBackground(new java.awt.Color(74, 74, 72));
-        jMenuBarMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(74, 74, 72)));
-        jMenuBarMain.setForeground(new java.awt.Color(86, 98, 70));
-
-        jMenu1.setBackground(new java.awt.Color(0, 0, 65));
-        jMenu1.setText("File");
-        jMenuBarMain.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBarMain.add(jMenu2);
-
+            jMenuBarMain.add(jMenu2);
+        }
         setJMenuBar(jMenuBarMain);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jMainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jMainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        //======== jMainPanel ========
+        {
+            jMainPanel.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+            border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER
+            , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font
+            .BOLD ,12 ), java. awt. Color. red) ,jMainPanel. getBorder( )) ); jMainPanel. addPropertyChangeListener (
+            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072"
+            .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
 
-        jMainTabbedPane.getAccessibleContext().setAccessibleName("Login");
+            //======== jStatusPanel ========
+            {
+                jStatusPanel.setBackground(new Color(0x4a4a48));
+                jStatusPanel.setBorder(LineBorder.createBlackLineBorder());
+                jStatusPanel.setFont(new Font("Tw Cen MT", Font.BOLD, 14));
 
+                //---- jStatusMessageLabel ----
+                jStatusMessageLabel.setFont(new Font("Tw Cen MT", Font.BOLD, 14));
+                jStatusMessageLabel.setText("My First Application is running.");
+
+                //---- jStatusAnimationLabel ----
+                jStatusAnimationLabel.setText("jLabel2");
+
+                GroupLayout jStatusPanelLayout = new GroupLayout(jStatusPanel);
+                jStatusPanel.setLayout(jStatusPanelLayout);
+                jStatusPanelLayout.setHorizontalGroup(
+                    jStatusPanelLayout.createParallelGroup()
+                        .addGroup(jStatusPanelLayout.createSequentialGroup()
+                            .addGroup(jStatusPanelLayout.createParallelGroup()
+                                .addComponent(jStatusMessageLabel)
+                                .addComponent(jStatusAnimationLabel)
+                                .addComponent(jProgressCompletionBar, GroupLayout.PREFERRED_SIZE, 374, GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 174, Short.MAX_VALUE))
+                );
+                jStatusPanelLayout.setVerticalGroup(
+                    jStatusPanelLayout.createParallelGroup()
+                        .addGroup(jStatusPanelLayout.createSequentialGroup()
+                            .addComponent(jStatusMessageLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jStatusAnimationLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jProgressCompletionBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 35, Short.MAX_VALUE))
+                );
+            }
+
+            GroupLayout jMainPanelLayout = new GroupLayout(jMainPanel);
+            jMainPanel.setLayout(jMainPanelLayout);
+            jMainPanelLayout.setHorizontalGroup(
+                jMainPanelLayout.createParallelGroup()
+                    .addGroup(GroupLayout.Alignment.TRAILING, jMainPanelLayout.createSequentialGroup()
+                        .addComponent(jStatusPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+            );
+            jMainPanelLayout.setVerticalGroup(
+                jMainPanelLayout.createParallelGroup()
+                    .addGroup(jMainPanelLayout.createSequentialGroup()
+                        .addComponent(jStatusPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 246, Short.MAX_VALUE))
+            );
+        }
+
+        //======== jMainTabbedPane ========
+        {
+
+            //======== jLoginPanel ========
+            {
+
+                //---- jNameLabel ----
+                jNameLabel.setText("Name:");
+                jNameLabel.setToolTipText("");
+
+                //---- jLoginButton ----
+                jLoginButton.setText("Login");
+                jLoginButton.addActionListener(e -> jLoginButtonActionPerformed(e));
+
+                //---- jPasswordLabel ----
+                jPasswordLabel.setText("Password:");
+
+                //---- jRegisterButton ----
+                jRegisterButton.setText("Register");
+                jRegisterButton.addActionListener(e -> jRegisterButtonActionPerformed(e));
+
+                //---- jLogOutButton ----
+                jLogOutButton.setText("Log Out");
+                jLogOutButton.addActionListener(e -> jLogOutButtonActionPerformed(e));
+
+                GroupLayout jLoginPanelLayout = new GroupLayout(jLoginPanel);
+                jLoginPanel.setLayout(jLoginPanelLayout);
+                jLoginPanelLayout.setHorizontalGroup(
+                    jLoginPanelLayout.createParallelGroup()
+                        .addGroup(jLoginPanelLayout.createSequentialGroup()
+                            .addGroup(jLoginPanelLayout.createParallelGroup()
+                                .addGroup(GroupLayout.Alignment.TRAILING, jLoginPanelLayout.createSequentialGroup()
+                                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLoginButton, GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jRegisterButton))
+                                .addGroup(jLoginPanelLayout.createSequentialGroup()
+                                    .addGap(209, 209, 209)
+                                    .addGroup(jLoginPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jPasswordTextField, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                                        .addComponent(jNameTextField, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))))
+                            .addGap(0, 213, Short.MAX_VALUE))
+                        .addGroup(jLoginPanelLayout.createSequentialGroup()
+                            .addGroup(jLoginPanelLayout.createParallelGroup()
+                                .addGroup(jLoginPanelLayout.createSequentialGroup()
+                                    .addGap(232, 232, 232)
+                                    .addComponent(jLogOutButton))
+                                .addGroup(jLoginPanelLayout.createSequentialGroup()
+                                    .addGap(258, 258, 258)
+                                    .addComponent(jNameLabel))
+                                .addGroup(jLoginPanelLayout.createSequentialGroup()
+                                    .addGap(250, 250, 250)
+                                    .addComponent(jPasswordLabel)))
+                            .addContainerGap(252, Short.MAX_VALUE))
+                );
+                jLoginPanelLayout.setVerticalGroup(
+                    jLoginPanelLayout.createParallelGroup()
+                        .addGroup(jLoginPanelLayout.createSequentialGroup()
+                            .addComponent(jNameLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jNameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPasswordLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPasswordTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addGroup(jLoginPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLoginButton)
+                                .addComponent(jRegisterButton))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLogOutButton)
+                            .addGap(0, 276, Short.MAX_VALUE))
+                );
+            }
+            jMainTabbedPane.addTab("Login", jLoginPanel);
+
+            //======== jCalculatorPanel ========
+            {
+
+                //---- jInput1Label ----
+                jInput1Label.setText("Input 1");
+
+                //---- jInput2Label ----
+                jInput2Label.setText("Input 2");
+
+                //---- jOutputLabel ----
+                jOutputLabel.setText("Output");
+
+                //---- jInput1TextField ----
+                jInput1TextField.setText("0.0");
+                jInput1TextField.addActionListener(e -> jInput1TextFieldActionPerformed(e));
+
+                //---- jInput2TextField ----
+                jInput2TextField.setText("0.0");
+
+                //---- jOutputTextField ----
+                jOutputTextField.setText("0.0");
+                jOutputTextField.addActionListener(e -> jOutputTextFieldActionPerformed(e));
+
+                //---- jAddButton ----
+                jAddButton.setText("+");
+                jAddButton.addActionListener(e -> jAddButtonActionPerformed(e));
+
+                //---- jSubtractButton ----
+                jSubtractButton.setText("-");
+                jSubtractButton.addActionListener(e -> jSubtractButtonActionPerformed(e));
+
+                //---- jMultButton ----
+                jMultButton.setText("*");
+                jMultButton.addActionListener(e -> jMultButtonActionPerformed(e));
+
+                //---- jDivButton ----
+                jDivButton.setText("/");
+                jDivButton.addActionListener(e -> jDivButtonActionPerformed(e));
+
+                //---- jPowerButton ----
+                jPowerButton.setText("X^y");
+                jPowerButton.addActionListener(e -> jPowerButtonActionPerformed(e));
+
+                //---- jCylinderVolumeButton ----
+                jCylinderVolumeButton.setText("Cylinder Vol");
+                jCylinderVolumeButton.addActionListener(e -> jCylinderVolumeButtonActionPerformed(e));
+
+                //---- jSphereVolumeButton ----
+                jSphereVolumeButton.setText("Sphere Vol");
+                jSphereVolumeButton.addActionListener(e -> jSphereVolumeButtonActionPerformed(e));
+
+                //---- jPyramidVolumeButton ----
+                jPyramidVolumeButton.setText("Pyramid Vol");
+                jPyramidVolumeButton.addActionListener(e -> jPyramidVolumeButtonActionPerformed(e));
+
+                GroupLayout jCalculatorPanelLayout = new GroupLayout(jCalculatorPanel);
+                jCalculatorPanel.setLayout(jCalculatorPanelLayout);
+                jCalculatorPanelLayout.setHorizontalGroup(
+                    jCalculatorPanelLayout.createParallelGroup()
+                        .addGroup(jCalculatorPanelLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jCalculatorPanelLayout.createParallelGroup()
+                                .addGroup(jCalculatorPanelLayout.createSequentialGroup()
+                                    .addGroup(jCalculatorPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jCalculatorPanelLayout.createSequentialGroup()
+                                            .addComponent(jInput2Label)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jInput2TextField))
+                                        .addGroup(jCalculatorPanelLayout.createSequentialGroup()
+                                            .addComponent(jInput1Label)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jInput1TextField, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(GroupLayout.Alignment.TRAILING, jCalculatorPanelLayout.createSequentialGroup()
+                                            .addGap(11, 11, 11)
+                                            .addComponent(jAddButton, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jSubtractButton, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+                                            .addGap(20, 20, 20)))
+                                    .addGroup(jCalculatorPanelLayout.createParallelGroup()
+                                        .addGroup(jCalculatorPanelLayout.createSequentialGroup()
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jOutputLabel)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jOutputTextField, GroupLayout.PREFERRED_SIZE, 230, GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jCalculatorPanelLayout.createSequentialGroup()
+                                            .addGap(49, 49, 49)
+                                            .addComponent(jMultButton, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+                                            .addGap(72, 72, 72)
+                                            .addComponent(jDivButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jCalculatorPanelLayout.createSequentialGroup()
+                                    .addComponent(jPowerButton, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jCylinderVolumeButton)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jSphereVolumeButton)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jPyramidVolumeButton)))
+                            .addContainerGap(87, Short.MAX_VALUE))
+                );
+                jCalculatorPanelLayout.setVerticalGroup(
+                    jCalculatorPanelLayout.createParallelGroup()
+                        .addGroup(jCalculatorPanelLayout.createSequentialGroup()
+                            .addGap(14, 14, 14)
+                            .addGroup(jCalculatorPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jInput1Label)
+                                .addComponent(jOutputLabel)
+                                .addComponent(jInput1TextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jOutputTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addGap(21, 21, 21)
+                            .addGroup(jCalculatorPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jInput2Label)
+                                .addComponent(jInput2TextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addGap(33, 33, 33)
+                            .addGroup(jCalculatorPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jAddButton)
+                                .addComponent(jSubtractButton)
+                                .addComponent(jMultButton)
+                                .addComponent(jDivButton))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jCalculatorPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jPowerButton)
+                                .addComponent(jCylinderVolumeButton)
+                                .addComponent(jSphereVolumeButton)
+                                .addComponent(jPyramidVolumeButton))
+                            .addContainerGap(278, Short.MAX_VALUE))
+                );
+            }
+            jMainTabbedPane.addTab("Calculator", jCalculatorPanel);
+
+            //======== jHeadOfficePanel ========
+            {
+
+                //---- jHeadOfficeButton ----
+                jHeadOfficeButton.setText("Display");
+                jHeadOfficeButton.addActionListener(e -> jHeadOfficeButtonActionPerformed(e));
+
+                //---- jHeadOfficeTextArea ----
+                jHeadOfficeTextArea.setColumns(20);
+                jHeadOfficeTextArea.setRows(5);
+
+                GroupLayout jHeadOfficePanelLayout = new GroupLayout(jHeadOfficePanel);
+                jHeadOfficePanel.setLayout(jHeadOfficePanelLayout);
+                jHeadOfficePanelLayout.setHorizontalGroup(
+                    jHeadOfficePanelLayout.createParallelGroup()
+                        .addGroup(jHeadOfficePanelLayout.createSequentialGroup()
+                            .addGroup(jHeadOfficePanelLayout.createParallelGroup()
+                                .addGroup(jHeadOfficePanelLayout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(jHeadOfficeTextArea, GroupLayout.PREFERRED_SIZE, 341, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jHeadOfficePanelLayout.createSequentialGroup()
+                                    .addGap(134, 134, 134)
+                                    .addComponent(jHeadOfficeButton)))
+                            .addContainerGap(220, Short.MAX_VALUE))
+                );
+                jHeadOfficePanelLayout.setVerticalGroup(
+                    jHeadOfficePanelLayout.createParallelGroup()
+                        .addGroup(jHeadOfficePanelLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jHeadOfficeTextArea, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jHeadOfficeButton)
+                            .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                );
+            }
+            jMainTabbedPane.addTab("HeadOffice", jHeadOfficePanel);
+
+            //======== jEditHeadOfficePanel ========
+            {
+
+                //---- JNameEditLabel ----
+                JNameEditLabel.setText("Name");
+
+                //---- jOpeningHoursEditLabel ----
+                jOpeningHoursEditLabel.setText("Opening Hours");
+
+                //---- jHouseNoEditLabel ----
+                jHouseNoEditLabel.setText("House No");
+
+                //---- jStreetEditLabel ----
+                jStreetEditLabel.setText("Street");
+
+                //---- jCityEditLabel ----
+                jCityEditLabel.setText("City");
+
+                //---- jPostcodeEditLabel ----
+                jPostcodeEditLabel.setText("Postcode");
+
+                //---- jCountryEditLabel ----
+                jCountryEditLabel.setText("Country");
+
+                //---- jStreetEditTextField ----
+                jStreetEditTextField.addActionListener(e -> jStreetEditTextFieldActionPerformed(e));
+
+                //---- jPostCodeEditTextField ----
+                jPostCodeEditTextField.addActionListener(e -> jPostCodeEditTextFieldActionPerformed(e));
+
+                //---- jButton1 ----
+                jButton1.setText("Save");
+                jButton1.addActionListener(e -> jButton1ActionPerformed(e));
+
+                GroupLayout jEditHeadOfficePanelLayout = new GroupLayout(jEditHeadOfficePanel);
+                jEditHeadOfficePanel.setLayout(jEditHeadOfficePanelLayout);
+                jEditHeadOfficePanelLayout.setHorizontalGroup(
+                    jEditHeadOfficePanelLayout.createParallelGroup()
+                        .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
+                            .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
+                                    .addGroup(jEditHeadOfficePanelLayout.createParallelGroup()
+                                        .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
+                                            .addContainerGap()
+                                            .addComponent(jOpeningHoursEditLabel))
+                                        .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
+                                            .addGap(32, 32, 32)
+                                            .addComponent(JNameEditLabel)))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jNameEditTextField, GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                                        .addComponent(jOpeningHoursEditTextField))
+                                    .addGap(35, 35, 35)
+                                    .addGroup(jEditHeadOfficePanelLayout.createParallelGroup()
+                                        .addComponent(jHouseNoEditLabel)
+                                        .addComponent(jStreetEditLabel)
+                                        .addComponent(jCityEditLabel)
+                                        .addComponent(jPostcodeEditLabel)
+                                        .addComponent(jCountryEditLabel)))
+                                .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
+                                    .addComponent(jButton1)
+                                    .addGap(10, 10, 10)))
+                            .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jCountryEditTextField, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                .addComponent(jPostCodeEditTextField)
+                                .addComponent(jCityEditTextField)
+                                .addComponent(jStreetEditTextField)
+                                .addComponent(jHouseNoEditTextField))
+                            .addContainerGap(63, Short.MAX_VALUE))
+                );
+                jEditHeadOfficePanelLayout.setVerticalGroup(
+                    jEditHeadOfficePanelLayout.createParallelGroup()
+                        .addGroup(jEditHeadOfficePanelLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(JNameEditLabel)
+                                .addComponent(jHouseNoEditLabel)
+                                .addComponent(jNameEditTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jHouseNoEditTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addGap(16, 16, 16)
+                            .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jOpeningHoursEditLabel)
+                                .addComponent(jOpeningHoursEditTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jStreetEditLabel)
+                                .addComponent(jStreetEditTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jCityEditLabel)
+                                .addComponent(jCityEditTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jPostcodeEditLabel)
+                                .addComponent(jPostCodeEditTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jEditHeadOfficePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jCountryEditLabel)
+                                .addComponent(jCountryEditTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addGap(33, 33, 33)
+                            .addComponent(jButton1)
+                            .addContainerGap(183, Short.MAX_VALUE))
+                );
+            }
+            jMainTabbedPane.addTab("Edit Head Office", jEditHeadOfficePanel);
+
+            //======== jClientListPanel ========
+            {
+
+                //---- jClientInfoButton ----
+                jClientInfoButton.setText("Display");
+                jClientInfoButton.addActionListener(e -> jClientInfoButtonActionPerformed(e));
+
+                //======== scrollPane1 ========
+                {
+                    scrollPane1.setViewportView(jClientInfoTextArea);
+                }
+
+                GroupLayout jClientListPanelLayout = new GroupLayout(jClientListPanel);
+                jClientListPanel.setLayout(jClientListPanelLayout);
+                jClientListPanelLayout.setHorizontalGroup(
+                    jClientListPanelLayout.createParallelGroup()
+                        .addGroup(jClientListPanelLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+                            .addContainerGap())
+                        .addGroup(GroupLayout.Alignment.TRAILING, jClientListPanelLayout.createSequentialGroup()
+                            .addContainerGap(245, Short.MAX_VALUE)
+                            .addComponent(jClientInfoButton)
+                            .addGap(242, 242, 242))
+                );
+                jClientListPanelLayout.setVerticalGroup(
+                    jClientListPanelLayout.createParallelGroup()
+                        .addGroup(jClientListPanelLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 285, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jClientInfoButton)
+                            .addContainerGap(139, Short.MAX_VALUE))
+                );
+            }
+            jMainTabbedPane.addTab("Client List", jClientListPanel);
+
+            //======== jAddClientPanel ========
+            {
+
+                //---- jFnameLabel ----
+                jFnameLabel.setText("First Name");
+
+                //---- jSnameLabel ----
+                jSnameLabel.setText("Surname");
+
+                //---- jDOBLabel ----
+                jDOBLabel.setText("DOB");
+
+                //---- jHouseNumLabel ----
+                jHouseNumLabel.setText("House Number");
+
+                //---- jStreetLabel ----
+                jStreetLabel.setText("Street");
+
+                //---- jTownLabel ----
+                jTownLabel.setText("Town");
+
+                //---- jPostCodeLabel ----
+                jPostCodeLabel.setText("Post Code");
+
+                //---- jCountryLabel ----
+                jCountryLabel.setText("Country");
+
+                //---- jSaveButton ----
+                jSaveButton.setText("Save");
+                jSaveButton.addActionListener(e -> jaddClientSave(e));
+
+                GroupLayout jAddClientPanelLayout = new GroupLayout(jAddClientPanel);
+                jAddClientPanel.setLayout(jAddClientPanelLayout);
+                jAddClientPanelLayout.setHorizontalGroup(
+                    jAddClientPanelLayout.createParallelGroup()
+                        .addGroup(jAddClientPanelLayout.createSequentialGroup()
+                            .addGroup(jAddClientPanelLayout.createParallelGroup()
+                                .addGroup(jAddClientPanelLayout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addGroup(jAddClientPanelLayout.createParallelGroup()
+                                        .addComponent(jDOBLabel)
+                                        .addComponent(jCountryLabel)
+                                        .addGroup(jAddClientPanelLayout.createSequentialGroup()
+                                            .addGroup(jAddClientPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jCountryTextField, GroupLayout.Alignment.LEADING)
+                                                .addComponent(jTownTextField, GroupLayout.Alignment.LEADING)
+                                                .addComponent(jFnameLabel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jFnameTextField, GroupLayout.Alignment.LEADING)
+                                                .addComponent(jHouseNumTextField, GroupLayout.Alignment.LEADING)
+                                                .addComponent(jHouseNumLabel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jTownLabel, GroupLayout.Alignment.LEADING)
+                                                .addComponent(jDOBTextField, GroupLayout.Alignment.LEADING))
+                                            .addGap(30, 30, 30)
+                                            .addGroup(jAddClientPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jPostCodeLabel)
+                                                .addComponent(jStreetLabel)
+                                                .addComponent(jSnameLabel, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                                                .addComponent(jSnameTextField, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                                                .addComponent(jStreetTextField, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                                                .addComponent(jPostCodeTextField, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)))))
+                                .addGroup(jAddClientPanelLayout.createSequentialGroup()
+                                    .addGap(60, 60, 60)
+                                    .addComponent(jSaveButton, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)))
+                            .addContainerGap(333, Short.MAX_VALUE))
+                );
+                jAddClientPanelLayout.setVerticalGroup(
+                    jAddClientPanelLayout.createParallelGroup()
+                        .addGroup(jAddClientPanelLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jAddClientPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jFnameLabel)
+                                .addComponent(jSnameLabel))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jAddClientPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jFnameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSnameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addComponent(jDOBLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jDOBTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addGroup(jAddClientPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jHouseNumLabel)
+                                .addComponent(jStreetLabel))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jAddClientPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jHouseNumTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jStreetTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jAddClientPanelLayout.createParallelGroup()
+                                .addComponent(jTownLabel)
+                                .addComponent(jPostCodeLabel))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jAddClientPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTownTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPostCodeTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jCountryLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jCountryTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jSaveButton, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(81, Short.MAX_VALUE))
+                );
+            }
+            jMainTabbedPane.addTab("Add Client", jAddClientPanel);
+        }
+
+        GroupLayout contentPaneLayout = new GroupLayout(contentPane);
+        contentPane.setLayout(contentPaneLayout);
+        contentPaneLayout.setHorizontalGroup(
+            contentPaneLayout.createParallelGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(jMainPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jMainTabbedPane, GroupLayout.PREFERRED_SIZE, 567, GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(32, Short.MAX_VALUE))
+        );
+        contentPaneLayout.setVerticalGroup(
+            contentPaneLayout.createParallelGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addComponent(jMainTabbedPane, GroupLayout.PREFERRED_SIZE, 512, GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jMainPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE))
+        );
         pack();
+        setLocationRelativeTo(getOwner());
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLoginButtonActionPerformed
@@ -556,8 +743,10 @@ public class MainJFrame extends javax.swing.JFrame {
             switch(theUser.getRole()){
                 case("Bank Manager") -> {
                     jMainTabbedPane.addTab("Calculator", jTabInMemory[0]);
-                    jMainTabbedPane.addTab("HeadOffice", jTabInMemory[1]);
-                    jMainTabbedPane.addTab("EditHeadOffice", jTabInMemory[2]);
+                    jMainTabbedPane.addTab("Head Office", jTabInMemory[1]);
+                    jMainTabbedPane.addTab("Edit Head Office", jTabInMemory[2]);
+                    jMainTabbedPane.addTab("Client List", jTabInMemory[3]);
+                    jMainTabbedPane.addTab("Add Client", jTabInMemory[4]);
                 }
                 case("Bank Employee"),("Bank Advisor"),("Bank Admin"),("Bank Customer") -> {
                     jMainTabbedPane.addTab("Calculator", jTabInMemory[0]);
@@ -688,7 +877,7 @@ public class MainJFrame extends javax.swing.JFrame {
         double input1 = Double.parseDouble(jInput1TextField.getText());
         double input2 = Double.parseDouble(jInput2TextField.getText());
         
-        double output = (1/3) * input2 * power(input1 , 2);
+        double output = ((double) 1 /3) * input2 * power(input1 , 2);
         
         jOutputTextField.setText(String.valueOf(output));
     }//GEN-LAST:event_jPyramidVolumeButtonActionPerformed
@@ -736,6 +925,28 @@ public class MainJFrame extends javax.swing.JFrame {
         jStatusMessageLabel.setText("Logged Out.");
     }//GEN-LAST:event_jLogOutButtonActionPerformed
 
+
+    private void jClientInfoButtonActionPerformed(java.awt.event.ActionEvent evt){
+        BankClients.Display(jClientInfoTextArea);
+    }
+
+    private void jaddClientSave(ActionEvent e) {
+        // TODO add your code here
+        Person newClient = new Person();
+
+        LocalDate date = LocalDate.now();
+
+        newClient.Edit(jFnameTextField.getText(), jSnameTextField.getText(), jDOBTextField.getText(), date.format(DateTimeFormatter.ofPattern("d/MM/uuuu")));
+
+        newClient.editAddress("", Integer.valueOf(jHouseNumTextField.getText()), jStreetTextField.getText(), "", jPostCodeTextField.getText(), jTownTextField.getText(), jCountryTextField.getText());
+
+        BankClients.addClient(newClient);
+
+
+        // Save to file
+        BankClients.SaveToFile("BankClients.txt");
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -781,58 +992,83 @@ public class MainJFrame extends javax.swing.JFrame {
     private IAddress theHeadOfficeAddress;
     private java.awt.Component[] jTabInMemory;
     private User theUser;
+
+    private CustomerList BankClients;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JNameEditLabel;
-    private javax.swing.JButton jAddButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jCalculatorPanel;
-    private javax.swing.JLabel jCityEditLabel;
-    private javax.swing.JTextField jCityEditTextField;
-    private javax.swing.JLabel jCountryEditLabel;
-    private javax.swing.JTextField jCountryEditTextField;
-    private javax.swing.JButton jCylinderVolumeButton;
-    private javax.swing.JButton jDivButton;
-    private javax.swing.JPanel jEditHeadOfficePanel;
-    private javax.swing.JButton jHeadOfficeButton;
-    private javax.swing.JPanel jHeadOfficePanel;
-    private javax.swing.JTextArea jHeadOfficeTextArea;
-    private javax.swing.JLabel jHouseNoEditLabel;
-    private javax.swing.JTextField jHouseNoEditTextField;
-    private javax.swing.JLabel jInput1Label;
-    private javax.swing.JTextField jInput1TextField;
-    private javax.swing.JLabel jInput2Label;
-    private javax.swing.JTextField jInput2TextField;
-    private javax.swing.JButton jLogOutButton;
-    private javax.swing.JButton jLoginButton;
-    private javax.swing.JPanel jLoginPanel;
-    private javax.swing.JPanel jMainPanel;
-    private javax.swing.JTabbedPane jMainTabbedPane;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBarMain;
-    private javax.swing.JButton jMultButton;
-    private javax.swing.JTextField jNameEditTextField;
-    private javax.swing.JLabel jNameLabel;
-    private javax.swing.JTextField jNameTextField;
-    private javax.swing.JLabel jOpeningHoursEditLabel;
-    private javax.swing.JTextField jOpeningHoursEditTextField;
-    private javax.swing.JLabel jOutputLabel;
-    private javax.swing.JTextField jOutputTextField;
-    private javax.swing.JLabel jPasswordLabel;
-    private javax.swing.JTextField jPasswordTextField;
-    private javax.swing.JTextField jPostCodeEditTextField;
-    private javax.swing.JLabel jPostcodeEditLabel;
-    private javax.swing.JButton jPowerButton;
-    private javax.swing.JProgressBar jProgressCompletionBar;
-    private javax.swing.JButton jPyramidVolumeButton;
-    private javax.swing.JButton jRegisterButton;
-    private javax.swing.JButton jSphereVolumeButton;
-    private javax.swing.JLabel jStatusAnimationLabel;
-    private javax.swing.JLabel jStatusMessageLabel;
-    private javax.swing.JPanel jStatusPanel;
-    private javax.swing.JLabel jStreetEditLabel;
-    private javax.swing.JTextField jStreetEditTextField;
-    private javax.swing.JButton jSubtractButton;
+    // Generated using JFormDesigner Evaluation license - Ethan Deeley
+    private JMenuBar jMenuBarMain;
+    private JMenu jMenu1;
+    private JMenu jMenu2;
+    private JPanel jMainPanel;
+    private JPanel jStatusPanel;
+    private JLabel jStatusMessageLabel;
+    private JLabel jStatusAnimationLabel;
+    private JProgressBar jProgressCompletionBar;
+    private JTabbedPane jMainTabbedPane;
+    private JPanel jLoginPanel;
+    private JLabel jNameLabel;
+    private JTextField jNameTextField;
+    private JButton jLoginButton;
+    private JLabel jPasswordLabel;
+    private JTextField jPasswordTextField;
+    private JButton jRegisterButton;
+    private JButton jLogOutButton;
+    private JPanel jCalculatorPanel;
+    private JLabel jInput1Label;
+    private JLabel jInput2Label;
+    private JLabel jOutputLabel;
+    private JTextField jInput1TextField;
+    private JTextField jInput2TextField;
+    private JTextField jOutputTextField;
+    private JButton jAddButton;
+    private JButton jSubtractButton;
+    private JButton jMultButton;
+    private JButton jDivButton;
+    private JButton jPowerButton;
+    private JButton jCylinderVolumeButton;
+    private JButton jSphereVolumeButton;
+    private JButton jPyramidVolumeButton;
+    private JPanel jHeadOfficePanel;
+    private JButton jHeadOfficeButton;
+    private JTextArea jHeadOfficeTextArea;
+    private JPanel jEditHeadOfficePanel;
+    private JLabel JNameEditLabel;
+    private JTextField jNameEditTextField;
+    private JLabel jOpeningHoursEditLabel;
+    private JTextField jOpeningHoursEditTextField;
+    private JLabel jHouseNoEditLabel;
+    private JLabel jStreetEditLabel;
+    private JLabel jCityEditLabel;
+    private JLabel jPostcodeEditLabel;
+    private JLabel jCountryEditLabel;
+    private JTextField jHouseNoEditTextField;
+    private JTextField jStreetEditTextField;
+    private JTextField jCityEditTextField;
+    private JTextField jPostCodeEditTextField;
+    private JTextField jCountryEditTextField;
+    private JButton jButton1;
+    private JPanel jClientListPanel;
+    private JButton jClientInfoButton;
+    private JScrollPane scrollPane1;
+    private JTextArea jClientInfoTextArea;
+    private JPanel jAddClientPanel;
+    private JLabel jFnameLabel;
+    private JLabel jSnameLabel;
+    private JTextField jFnameTextField;
+    private JTextField jSnameTextField;
+    private JLabel jDOBLabel;
+    private JTextField jDOBTextField;
+    private JLabel jHouseNumLabel;
+    private JTextField jHouseNumTextField;
+    private JLabel jStreetLabel;
+    private JTextField jStreetTextField;
+    private JLabel jTownLabel;
+    private JLabel jPostCodeLabel;
+    private JTextField jTownTextField;
+    private JTextField jPostCodeTextField;
+    private JLabel jCountryLabel;
+    private JTextField jCountryTextField;
+    private JButton jSaveButton;
     // End of variables declaration//GEN-END:variables
 }

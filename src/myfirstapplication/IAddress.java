@@ -56,4 +56,20 @@ public class IAddress {
     public String toFileString() {
         return( name + "\n" + String.valueOf(house_no) + "\n" + street + "\n" + post_code + "\n" + town + "\n" + country);
     }
+
+    public String[] convertToArray(){
+        String [] resultArray = new String[5];
+
+        resultArray[0] = String.valueOf(house_no);
+        resultArray[1] = street;
+        resultArray[2] = town;
+        resultArray[3] = post_code;
+        resultArray[4] = country;
+
+        return resultArray;
+    }
+
+    public void convertFromArray(String[] src){
+        this.Edit("", "", Integer.valueOf(src[0]), src[1], "", src[2], src[3], src[4]);
+    }
 }

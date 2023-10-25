@@ -1,0 +1,345 @@
+JFDML JFormDesigner: "8.2.0.0.331" Java: "17.0.8.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {comp jMainPanel:::p::p, comp jMainTabbedPane:::p:567:p}, space ::32:x}}"
+			"$verticalGroup": "par l {seq {comp jMainTabbedPane:::p:512:p, space :::p, comp jMainPanel:::p::p, space :0:0:x}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			"background": new java.awt.Color( 74, 74, 72, 255 )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq t {comp jStatusPanel:::p::p, space :0:0:x}}"
+				"$verticalGroup": "par l {seq l {comp jStatusPanel:::p::p, space :0:246:x}}"
+			} ) {
+				name: "jMainPanel"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq {par l {comp jStatusMessageLabel:::p::p, comp jStatusAnimationLabel:::p::p, comp jProgressCompletionBar:::p:374:p}, space :0:174:x}}"
+					"$verticalGroup": "par l {seq l {comp jStatusMessageLabel:::p::p, space :::p, comp jStatusAnimationLabel:::p::p, space :::p, comp jProgressCompletionBar:::p::p, space :0:35:x}}"
+				} ) {
+					name: "jStatusPanel"
+					"background": new java.awt.Color( 74, 74, 72, 255 )
+					"border": new javax.swing.border.LineBorder( sfield java.awt.Color black, 1, false )
+					"font": new java.awt.Font( "Tw Cen MT", 1, 14 )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jStatusMessageLabel"
+						"font": new java.awt.Font( "Tw Cen MT", 1, 14 )
+						"text": "My First Application is running."
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jStatusAnimationLabel"
+						"text": "jLabel2"
+					} )
+					add( new FormComponent( "javax.swing.JProgressBar" ) {
+						name: "jProgressCompletionBar"
+					} )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+				name: "jMainTabbedPane"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq {par l {seq t {space :::x, comp jLoginButton:::p:62:p, space :::p, comp jRegisterButton:::p::p}, seq l {space :p:209:p, par l:::p {comp jPasswordTextField::t::145:x, comp jNameTextField::t::145:x}}}, space :0:213:x}, seq {par l {seq l {space :p:232:p, comp jLogOutButton:::p::p}, seq l {space :p:258:p, comp jNameLabel:::p::p}, seq l {space :p:250:p, comp jPasswordLabel:::p::p}}, space ::252:x}}"
+					"$verticalGroup": "par l {seq l {comp jNameLabel:::p::p, space :::p, comp jNameTextField:::p::p, space :::p, comp jPasswordLabel:::p::p, space :::p, comp jPasswordTextField:::p::p, space :p:18:p, par b {comp jLoginButton::b:p::p, comp jRegisterButton::b:p::p}, space :::p, comp jLogOutButton:::p::p, space :0:276:x}}"
+				} ) {
+					name: "jLoginPanel"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jNameLabel"
+						"text": "Name:"
+						"toolTipText": ""
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jNameTextField"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jLoginButton"
+						"text": "Login"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jLoginButtonActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jPasswordLabel"
+						"text": "Password:"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jPasswordTextField"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jRegisterButton"
+						"text": "Register"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jRegisterButtonActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jLogOutButton"
+						"text": "Log Out"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jLogOutButtonActionPerformed", true ) )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Login"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq {space :::p, par l {seq {par l:::p {seq l {comp jInput2Label:::p::p, space s:::p, comp jInput2TextField:::::x}, seq l {comp jInput1Label:::p::p, space s:::p, comp jInput1TextField:::p:106:p}, seq t {space :p:11:p, comp jAddButton:::p:35:p, space :::x, comp jSubtractButton:::p:35:p, space :p:20:p}}, par l {seq {space s:::p, comp jOutputLabel:::p::p, space s:::p, comp jOutputTextField:::p:230:p}, seq l {space :p:49:p, comp jMultButton:::p:35:p, space :p:72:p, comp jDivButton:::p:38:p}}}, seq {comp jPowerButton:::p:56:p, space s:::p, comp jCylinderVolumeButton:::p::p, space s:::p, comp jSphereVolumeButton:::p::p, space s:::p, comp jPyramidVolumeButton:::p::p}}, space ::87:x}}"
+					"$verticalGroup": "par l {seq l {space :p:14:p, par b {comp jInput1Label::b:p::p, comp jOutputLabel::b:p::p, comp jInput1TextField::b:p::p, comp jOutputTextField::b:p::p}, space :p:21:p, par b {comp jInput2Label::b:p::p, comp jInput2TextField::b:p::p}, space :p:33:p, par b {comp jAddButton::b:p::p, comp jSubtractButton::b:p::p, comp jMultButton::b:p::p, comp jDivButton::b:p::p}, space :::p, par b {comp jPowerButton::b:p::p, comp jCylinderVolumeButton::b:p::p, comp jSphereVolumeButton::b:p::p, comp jPyramidVolumeButton::b:p::p}, space ::278:x}}"
+				} ) {
+					name: "jCalculatorPanel"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jInput1Label"
+						"text": "Input 1"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jInput2Label"
+						"text": "Input 2"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jOutputLabel"
+						"text": "Output"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jInput1TextField"
+						"text": "0.0"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jInput1TextFieldActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jInput2TextField"
+						"text": "0.0"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jOutputTextField"
+						"text": "0.0"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jOutputTextFieldActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jAddButton"
+						"text": "+"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jAddButtonActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jSubtractButton"
+						"text": "-"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jSubtractButtonActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jMultButton"
+						"text": "*"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jMultButtonActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jDivButton"
+						"text": "/"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jDivButtonActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jPowerButton"
+						"text": "X^y"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jPowerButtonActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jCylinderVolumeButton"
+						"text": "Cylinder Vol"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jCylinderVolumeButtonActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jSphereVolumeButton"
+						"text": "Sphere Vol"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jSphereVolumeButtonActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jPyramidVolumeButton"
+						"text": "Pyramid Vol"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jPyramidVolumeButtonActionPerformed", true ) )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Calculator"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp jHeadOfficeTextArea:::p:341:p}, seq l {space :p:134:p, comp jHeadOfficeButton:::p::p}}, space ::220:x}}"
+					"$verticalGroup": "par l {seq {space :::p, comp jHeadOfficeTextArea:::p:191:p, space :::p, comp jHeadOfficeButton:::p::p, space :::x}}"
+				} ) {
+					name: "jHeadOfficePanel"
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jHeadOfficeButton"
+						"text": "Display"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jHeadOfficeButtonActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JTextArea" ) {
+						name: "jHeadOfficeTextArea"
+						"columns": 20
+						"rows": 5
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "HeadOffice"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq {par t {seq t {par l {seq {space :::p, comp jOpeningHoursEditLabel:::p::p}, seq l {space :p:32:p, comp JNameEditLabel:::p::p}}, space s:::p, par l:::p {comp jNameEditTextField::::81:x, comp jOpeningHoursEditTextField:::::x}, space :p:35:p, par l {comp jHouseNoEditLabel::l:p::p, comp jStreetEditLabel::l:p::p, comp jCityEditLabel::l:p::p, comp jPostcodeEditLabel::l:p::p, comp jCountryEditLabel::l:p::p}}, seq t {comp jButton1:::p::p, space :p:10:p}}, par l:::p {comp jCountryEditTextField::::210:x, comp jPostCodeEditTextField:::::x, comp jCityEditTextField:::::x, comp jStreetEditTextField:::::x, comp jHouseNoEditTextField:::::x}, space ::63:x}}"
+					"$verticalGroup": "par l {seq l {space :::p, par b {comp JNameEditLabel::b:p::p, comp jHouseNoEditLabel::b:p::p, comp jNameEditTextField::b:p::p, comp jHouseNoEditTextField::b:p::p}, space :p:16:p, par b {comp jOpeningHoursEditLabel::b:p::p, comp jOpeningHoursEditTextField::b:p::p, comp jStreetEditLabel::b:p::p, comp jStreetEditTextField::b:p::p}, space s:::p, par b {comp jCityEditLabel::b:p::p, comp jCityEditTextField::b:p::p}, space s:::p, par b {comp jPostcodeEditLabel::b:p::p, comp jPostCodeEditTextField::b:p::p}, space s:::p, par b {comp jCountryEditLabel::b:p::p, comp jCountryEditTextField::b:p::p}, space :p:33:p, comp jButton1:::p::p, space ::183:x}}"
+				} ) {
+					name: "jEditHeadOfficePanel"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "JNameEditLabel"
+						"text": "Name"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jNameEditTextField"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jOpeningHoursEditLabel"
+						"text": "Opening Hours"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jOpeningHoursEditTextField"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jHouseNoEditLabel"
+						"text": "House No"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jStreetEditLabel"
+						"text": "Street"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jCityEditLabel"
+						"text": "City"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jPostcodeEditLabel"
+						"text": "Postcode"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jCountryEditLabel"
+						"text": "Country"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jHouseNoEditTextField"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jStreetEditTextField"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jStreetEditTextFieldActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jCityEditTextField"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jPostCodeEditTextField"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jPostCodeEditTextFieldActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jCountryEditTextField"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jButton1"
+						"text": "Save"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton1ActionPerformed", true ) )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Edit Head Office"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {space :::p, comp scrollPane1::::555:x, space :::p}, seq t {space ::245:x, comp jClientInfoButton:::p::p, space :p:242:p}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp scrollPane1:::p:285:p, space u:::p, comp jClientInfoButton:::p::p, space ::139:x}}"
+				} ) {
+					name: "jClientListPanel"
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jClientInfoButton"
+						"text": "Display"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jClientInfo", true ) )
+					} )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						add( new FormComponent( "javax.swing.JTextArea" ) {
+							name: "jClientInfoTextArea"
+						} )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Client List"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq {par l {seq {space :::p, par l {comp jDOBLabel::l:p::p, comp jCountryLabel::l:p::p, seq l {par t:::p {comp jCountryTextField::l:::x, comp jTownTextField::l:::x, comp jFnameLabel::l:::x, comp jFnameTextField::l:::x, comp jHouseNumTextField::l:::x, comp jHouseNumLabel::l:::x, comp jTownLabel::l:p::p, comp jDOBTextField::l:::x}, space :p:30:p, par l:::p {comp jPostCodeLabel:::p::p, comp jStreetLabel:::p::p, comp jSnameLabel::::107:x, comp jSnameTextField::::107:x, comp jStreetTextField::l::107:x, comp jPostCodeTextField::l::107:x}}}}, seq l {space :p:60:p, comp jSaveButton:::p:103:p}}, space ::333:x}}"
+					"$verticalGroup": "par l {seq l {space :::p, par b {comp jFnameLabel::b:p::p, comp jSnameLabel::b:p::p}, space :::p, par b {comp jFnameTextField::b:p::p, comp jSnameTextField::b:p::p}, space s:::p, comp jDOBLabel:::p::p, space :::p, comp jDOBTextField:::p::p, space s:::p, par b {comp jHouseNumLabel::b:p::p, comp jStreetLabel::b:p::p}, space :::p, par b {comp jHouseNumTextField::b:p::p, comp jStreetTextField::b:p::p}, space u:::p, par l {comp jTownLabel:::p::p, comp jPostCodeLabel:::p::p}, space :::p, par b {comp jTownTextField::b:p::p, comp jPostCodeTextField::b:p::p}, space u:::p, comp jCountryLabel:::p::p, space :::p, comp jCountryTextField:::p::p, space s:::p, comp jSaveButton:::p:42:p, space ::81:x}}"
+				} ) {
+					name: "jAddClientPanel"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jFnameLabel"
+						"text": "First Name"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jSnameLabel"
+						"text": "Surname"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jFnameTextField"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jSnameTextField"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jDOBLabel"
+						"text": "DOB"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jDOBTextField"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jHouseNumLabel"
+						"text": "House Number"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jHouseNumTextField"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jStreetLabel"
+						"text": "Street"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jStreetTextField"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jTownLabel"
+						"text": "Town"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jPostCodeLabel"
+						"text": "Post Code"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jTownTextField"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jPostCodeTextField"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jCountryLabel"
+						"text": "Country"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "jCountryTextField"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "jSaveButton"
+						"text": "Save"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jaddClientSave", true ) )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Add Client"
+				} )
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "jMenuBarMain"
+				"background": new java.awt.Color( 74, 74, 72, 255 )
+				"border": new javax.swing.border.LineBorder( new java.awt.Color( 74, 74, 72, 255 ), 1, false )
+				"foreground": new java.awt.Color( 86, 98, 70, 255 )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "jMenu1"
+					"background": new java.awt.Color( 0, 0, 65, 255 )
+					"text": "File"
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "jMenu2"
+					"text": "Edit"
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 601, 908 )
+		} )
+	}
+}

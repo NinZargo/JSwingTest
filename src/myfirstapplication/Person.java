@@ -68,5 +68,37 @@ public class Person {
         jAddressTextArea.append("\n \n");
         
         HomeAddress.Display(jAddressTextArea);
-    }        
+    }
+
+    public String getSurname() {
+        return Surname;
+    }
+
+    public String[] convertToArray(){
+        String [] personArray = new String[4];
+        String [] resultArray = new String[9];
+
+        personArray[0] = FirstName;
+        personArray[1] = Surname;
+        personArray[2] = DOB.format(formatter);
+        personArray[3] = CustomerSince.format(formatter);
+
+        String [] addressArray = new String[5];
+        addressArray = HomeAddress.convertToArray();
+
+        System.arraycopy(personArray, 0, resultArray, 0, 4);
+        System.arraycopy(addressArray, 0, resultArray, 4, 5);
+
+        return resultArray;
+    }
+
+    public void convertFromArray(String[] src){
+        this.Edit(src[0], src[1], src[2], src[3]);
+
+        String[] addressArray = new String[5];
+
+        System.arraycopy(src, 4, addressArray, 0, 5);
+
+        HomeAddress.convertFromArray(addressArray);
+    }
 }
