@@ -26,23 +26,31 @@ public class MainJFrame extends javax.swing.JFrame {
 
 
 
+    
+
+    
+
     private void jClientInfo(ActionEvent e) {
         // TODO add your code here
     }
 
+    
+
     public MainJFrame() {
         initComponents();
         
-        theHeadOfficeBranch = new Branch();
+        theHeadOfficeBranch = new Branch("headOffice.txt");
         
         theUser = new User();
 
         BankClients = new CustomerList();
         
-        // Tab Code
-        jTabInMemory = new java.awt.Component[5];
+        BankBranches = new BranchList("BranchesList.txt");
         
-        for(int i = 0; i < (jMainTabbedPane.getTabCount() + 1); i++){
+        // Tab Code
+        jTabInMemory = new java.awt.Component[7];
+        
+        for(int i = 0; i < (jMainTabbedPane.getTabCount() + 2); i++){
             jTabInMemory[i] = (jMainTabbedPane.getComponentAt(1));
             jMainTabbedPane.remove(1);
         }
@@ -133,6 +141,46 @@ public class MainJFrame extends javax.swing.JFrame {
         jCountryLabel = new JLabel();
         jCountryTextField = new JTextField();
         jSaveButton = new JButton();
+        jBranchListPenel = new JPanel();
+        scrollPane2 = new JScrollPane();
+        jBranchListTextArea = new JTextArea();
+        JBranchListDisplay = new JButton();
+        jAddBranchPanel = new JPanel();
+        panel2 = new JPanel();
+        jFnameLabel2 = new JLabel();
+        jSnameLabel2 = new JLabel();
+        jFnameTextField2 = new JTextField();
+        jSnameTextField2 = new JTextField();
+        jDOBLabel2 = new JLabel();
+        jDOBTextField2 = new JTextField();
+        jHouseNumLabel2 = new JLabel();
+        jHouseNumTextField2 = new JTextField();
+        jStreetLabel2 = new JLabel();
+        jStreetTextField2 = new JTextField();
+        jTownLabel2 = new JLabel();
+        jPostCodeLabel2 = new JLabel();
+        jTownTextField2 = new JTextField();
+        jPostCodeTextField2 = new JTextField();
+        jCountryLabel2 = new JLabel();
+        jCountryTextField2 = new JTextField();
+        label1 = new JLabel();
+        jSaveBranchButton = new JButton();
+        panel3 = new JPanel();
+        JNameEditLabel2 = new JLabel();
+        jNameEditTextField2 = new JTextField();
+        jOpeningHoursEditLabel2 = new JLabel();
+        jOpeningHoursEditTextField2 = new JTextField();
+        jHouseNoEditLabel2 = new JLabel();
+        jStreetEditLabel2 = new JLabel();
+        jCityEditLabel2 = new JLabel();
+        jPostcodeEditLabel2 = new JLabel();
+        jCountryEditLabel2 = new JLabel();
+        jHouseNoEditTextField2 = new JTextField();
+        jStreetEditTextField2 = new JTextField();
+        jCityEditTextField2 = new JTextField();
+        jPostCodeEditTextField2 = new JTextField();
+        jCountryEditTextField2 = new JTextField();
+        label2 = new JLabel();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -162,12 +210,12 @@ public class MainJFrame extends javax.swing.JFrame {
 
         //======== jMainPanel ========
         {
-            jMainPanel.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
-            border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER
-            , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font
-            .BOLD ,12 ), java. awt. Color. red) ,jMainPanel. getBorder( )) ); jMainPanel. addPropertyChangeListener (
-            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072"
-            .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+            jMainPanel.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
+            ( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border
+            . TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt
+            . Color. red) ,jMainPanel. getBorder( )) ); jMainPanel. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
+            propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( )
+            ; }} );
 
             //======== jStatusPanel ========
             {
@@ -252,19 +300,16 @@ public class MainJFrame extends javax.swing.JFrame {
                     jLoginPanelLayout.createParallelGroup()
                         .addGroup(jLoginPanelLayout.createSequentialGroup()
                             .addGroup(jLoginPanelLayout.createParallelGroup()
-                                .addGroup(GroupLayout.Alignment.TRAILING, jLoginPanelLayout.createSequentialGroup()
-                                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLoginButton, GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jRegisterButton))
                                 .addGroup(jLoginPanelLayout.createSequentialGroup()
                                     .addGap(209, 209, 209)
-                                    .addGroup(jLoginPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jPasswordTextField, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                                        .addComponent(jNameTextField, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))))
-                            .addGap(0, 213, Short.MAX_VALUE))
-                        .addGroup(jLoginPanelLayout.createSequentialGroup()
-                            .addGroup(jLoginPanelLayout.createParallelGroup()
+                                    .addGroup(jLoginPanelLayout.createParallelGroup()
+                                        .addGroup(jLoginPanelLayout.createSequentialGroup()
+                                            .addComponent(jLoginButton, GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jRegisterButton))
+                                        .addGroup(jLoginPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jPasswordTextField, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                                            .addComponent(jNameTextField, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))))
                                 .addGroup(jLoginPanelLayout.createSequentialGroup()
                                     .addGap(232, 232, 232)
                                     .addComponent(jLogOutButton))
@@ -274,7 +319,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addGroup(jLoginPanelLayout.createSequentialGroup()
                                     .addGap(250, 250, 250)
                                     .addComponent(jPasswordLabel)))
-                            .addContainerGap(252, Short.MAX_VALUE))
+                            .addContainerGap(487, Short.MAX_VALUE))
                 );
                 jLoginPanelLayout.setVerticalGroup(
                     jLoginPanelLayout.createParallelGroup()
@@ -394,7 +439,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                     .addComponent(jSphereVolumeButton)
                                     .addGap(18, 18, 18)
                                     .addComponent(jPyramidVolumeButton)))
-                            .addContainerGap(87, Short.MAX_VALUE))
+                            .addContainerGap(368, Short.MAX_VALUE))
                 );
                 jCalculatorPanelLayout.setVerticalGroup(
                     jCalculatorPanelLayout.createParallelGroup()
@@ -449,7 +494,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addGroup(jHeadOfficePanelLayout.createSequentialGroup()
                                     .addGap(134, 134, 134)
                                     .addComponent(jHeadOfficeButton)))
-                            .addContainerGap(220, Short.MAX_VALUE))
+                            .addContainerGap(501, Short.MAX_VALUE))
                 );
                 jHeadOfficePanelLayout.setVerticalGroup(
                     jHeadOfficePanelLayout.createParallelGroup()
@@ -461,7 +506,7 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
             }
-            jMainTabbedPane.addTab("HeadOffice", jHeadOfficePanel);
+            jMainTabbedPane.addTab("Head Office", jHeadOfficePanel);
 
             //======== jEditHeadOfficePanel ========
             {
@@ -531,7 +576,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(jCityEditTextField)
                                 .addComponent(jStreetEditTextField)
                                 .addComponent(jHouseNoEditTextField))
-                            .addContainerGap(63, Short.MAX_VALUE))
+                            .addContainerGap(344, Short.MAX_VALUE))
                 );
                 jEditHeadOfficePanelLayout.setVerticalGroup(
                     jEditHeadOfficePanelLayout.createParallelGroup()
@@ -572,7 +617,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
                 //---- jClientInfoButton ----
                 jClientInfoButton.setText("Display");
-                jClientInfoButton.addActionListener(e -> jClientInfoButtonActionPerformed(e));
+                jClientInfoButton.addActionListener(e -> {
+			jClientInfo(e);
+			jClientInfo(e);
+		});
 
                 //======== scrollPane1 ========
                 {
@@ -584,22 +632,23 @@ public class MainJFrame extends javax.swing.JFrame {
                 jClientListPanelLayout.setHorizontalGroup(
                     jClientListPanelLayout.createParallelGroup()
                         .addGroup(jClientListPanelLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
-                            .addContainerGap())
-                        .addGroup(GroupLayout.Alignment.TRAILING, jClientListPanelLayout.createSequentialGroup()
-                            .addContainerGap(245, Short.MAX_VALUE)
-                            .addComponent(jClientInfoButton)
-                            .addGap(242, 242, 242))
+                            .addGroup(jClientListPanelLayout.createParallelGroup()
+                                .addGroup(jClientListPanelLayout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 631, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jClientListPanelLayout.createSequentialGroup()
+                                    .addGap(259, 259, 259)
+                                    .addComponent(jClientInfoButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
+                            .addContainerGap(211, Short.MAX_VALUE))
                 );
                 jClientListPanelLayout.setVerticalGroup(
                     jClientListPanelLayout.createParallelGroup()
                         .addGroup(jClientListPanelLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 285, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jClientInfoButton)
-                            .addContainerGap(139, Short.MAX_VALUE))
+                            .addGap(18, 18, 18)
+                            .addComponent(jClientInfoButton, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(122, Short.MAX_VALUE))
                 );
             }
             jMainTabbedPane.addTab("Client List", jClientListPanel);
@@ -667,7 +716,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addGroup(jAddClientPanelLayout.createSequentialGroup()
                                     .addGap(60, 60, 60)
                                     .addComponent(jSaveButton, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(333, Short.MAX_VALUE))
+                            .addContainerGap(614, Short.MAX_VALUE))
                 );
                 jAddClientPanelLayout.setVerticalGroup(
                     jAddClientPanelLayout.createParallelGroup()
@@ -710,6 +759,301 @@ public class MainJFrame extends javax.swing.JFrame {
                 );
             }
             jMainTabbedPane.addTab("Add Client", jAddClientPanel);
+
+            //======== jBranchListPenel ========
+            {
+
+                //======== scrollPane2 ========
+                {
+                    scrollPane2.setViewportView(jBranchListTextArea);
+                }
+
+                //---- JBranchListDisplay ----
+                JBranchListDisplay.setText("Display");
+                JBranchListDisplay.addActionListener(e -> JBranchListDisplay(e));
+
+                GroupLayout jBranchListPenelLayout = new GroupLayout(jBranchListPenel);
+                jBranchListPenel.setLayout(jBranchListPenelLayout);
+                jBranchListPenelLayout.setHorizontalGroup(
+                    jBranchListPenelLayout.createParallelGroup()
+                        .addGroup(jBranchListPenelLayout.createSequentialGroup()
+                            .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 271, Short.MAX_VALUE))
+                        .addGroup(jBranchListPenelLayout.createSequentialGroup()
+                            .addGap(206, 206, 206)
+                            .addComponent(JBranchListDisplay, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(512, Short.MAX_VALUE))
+                );
+                jBranchListPenelLayout.setVerticalGroup(
+                    jBranchListPenelLayout.createParallelGroup()
+                        .addGroup(jBranchListPenelLayout.createSequentialGroup()
+                            .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(JBranchListDisplay, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 128, Short.MAX_VALUE))
+                );
+            }
+            jMainTabbedPane.addTab("Branch List", jBranchListPenel);
+
+            //======== jAddBranchPanel ========
+            {
+
+                //======== panel2 ========
+                {
+
+                    //---- jFnameLabel2 ----
+                    jFnameLabel2.setText("First Name");
+
+                    //---- jSnameLabel2 ----
+                    jSnameLabel2.setText("Surname");
+
+                    //---- jDOBLabel2 ----
+                    jDOBLabel2.setText("DOB");
+
+                    //---- jHouseNumLabel2 ----
+                    jHouseNumLabel2.setText("House Number");
+
+                    //---- jStreetLabel2 ----
+                    jStreetLabel2.setText("Street");
+
+                    //---- jTownLabel2 ----
+                    jTownLabel2.setText("Town");
+
+                    //---- jPostCodeLabel2 ----
+                    jPostCodeLabel2.setText("Post Code");
+
+                    //---- jCountryLabel2 ----
+                    jCountryLabel2.setText("Country");
+
+                    //---- label1 ----
+                    label1.setText("Manager");
+
+                    //---- jSaveBranchButton ----
+                    jSaveBranchButton.setText("Save");
+                    jSaveBranchButton.addActionListener(e -> jSaveBranch(e));
+
+                    GroupLayout panel2Layout = new GroupLayout(panel2);
+                    panel2.setLayout(panel2Layout);
+                    panel2Layout.setHorizontalGroup(
+                        panel2Layout.createParallelGroup()
+                            .addGroup(panel2Layout.createParallelGroup()
+                                .addGroup(panel2Layout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addGroup(panel2Layout.createParallelGroup()
+                                        .addGroup(panel2Layout.createSequentialGroup()
+                                            .addComponent(jFnameLabel2, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
+                                            .addGap(30, 30, 30)
+                                            .addComponent(jSnameLabel2, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panel2Layout.createSequentialGroup()
+                                            .addComponent(jFnameTextField2, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
+                                            .addGap(30, 30, 30)
+                                            .addComponent(jSnameTextField2, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jDOBLabel2)
+                                        .addComponent(jDOBTextField2, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(panel2Layout.createSequentialGroup()
+                                            .addComponent(jHouseNumLabel2)
+                                            .addGap(30, 30, 30)
+                                            .addComponent(jStreetLabel2))
+                                        .addGroup(panel2Layout.createSequentialGroup()
+                                            .addComponent(jHouseNumTextField2, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
+                                            .addGap(30, 30, 30)
+                                            .addComponent(jStreetTextField2, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panel2Layout.createSequentialGroup()
+                                            .addComponent(jTownLabel2)
+                                            .addGap(87, 87, 87)
+                                            .addComponent(jPostCodeLabel2))
+                                        .addGroup(panel2Layout.createSequentialGroup()
+                                            .addComponent(jTownTextField2, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
+                                            .addGap(30, 30, 30)
+                                            .addComponent(jPostCodeTextField2, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jCountryLabel2)
+                                        .addComponent(jCountryTextField2, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE))
+                                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(panel2Layout.createSequentialGroup()
+                                .addContainerGap(157, Short.MAX_VALUE)
+                                .addGroup(panel2Layout.createParallelGroup()
+                                    .addGroup(GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                                        .addComponent(label1, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
+                                        .addGap(155, 155, 155))
+                                    .addGroup(GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                                        .addComponent(jSaveBranchButton, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap())))
+                    );
+                    panel2Layout.setVerticalGroup(
+                        panel2Layout.createParallelGroup()
+                            .addGroup(panel2Layout.createParallelGroup()
+                                .addGroup(panel2Layout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addGroup(panel2Layout.createParallelGroup()
+                                        .addComponent(jFnameLabel2)
+                                        .addComponent(jSnameLabel2))
+                                    .addGap(6, 6, 6)
+                                    .addGroup(panel2Layout.createParallelGroup()
+                                        .addComponent(jFnameTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSnameTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jDOBLabel2)
+                                    .addGap(6, 6, 6)
+                                    .addComponent(jDOBTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addGroup(panel2Layout.createParallelGroup()
+                                        .addComponent(jHouseNumLabel2)
+                                        .addComponent(jStreetLabel2))
+                                    .addGap(6, 6, 6)
+                                    .addGroup(panel2Layout.createParallelGroup()
+                                        .addComponent(jHouseNumTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jStreetTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                    .addGap(12, 12, 12)
+                                    .addGroup(panel2Layout.createParallelGroup()
+                                        .addComponent(jTownLabel2)
+                                        .addComponent(jPostCodeLabel2))
+                                    .addGap(6, 6, 6)
+                                    .addGroup(panel2Layout.createParallelGroup()
+                                        .addComponent(jTownTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jPostCodeTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                    .addGap(12, 12, 12)
+                                    .addComponent(jCountryLabel2)
+                                    .addGap(6, 6, 6)
+                                    .addComponent(jCountryTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(panel2Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(label1, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
+                                .addComponent(jSaveBranchButton)
+                                .addGap(36, 36, 36))
+                    );
+                }
+
+                //======== panel3 ========
+                {
+
+                    //---- JNameEditLabel2 ----
+                    JNameEditLabel2.setText("Name");
+
+                    //---- jOpeningHoursEditLabel2 ----
+                    jOpeningHoursEditLabel2.setText("Opening Hours");
+
+                    //---- jHouseNoEditLabel2 ----
+                    jHouseNoEditLabel2.setText("House No");
+
+                    //---- jStreetEditLabel2 ----
+                    jStreetEditLabel2.setText("Street");
+
+                    //---- jCityEditLabel2 ----
+                    jCityEditLabel2.setText("City");
+
+                    //---- jPostcodeEditLabel2 ----
+                    jPostcodeEditLabel2.setText("Postcode");
+
+                    //---- jCountryEditLabel2 ----
+                    jCountryEditLabel2.setText("Country");
+
+                    //---- jStreetEditTextField2 ----
+                    jStreetEditTextField2.addActionListener(e -> jStreetEditTextFieldActionPerformed(e));
+
+                    //---- jPostCodeEditTextField2 ----
+                    jPostCodeEditTextField2.addActionListener(e -> jPostCodeEditTextFieldActionPerformed(e));
+
+                    //---- label2 ----
+                    label2.setText("Branch");
+
+                    GroupLayout panel3Layout = new GroupLayout(panel3);
+                    panel3.setLayout(panel3Layout);
+                    panel3Layout.setHorizontalGroup(
+                        panel3Layout.createParallelGroup()
+                            .addGroup(panel3Layout.createParallelGroup()
+                                .addGroup(panel3Layout.createSequentialGroup()
+                                    .addGap(1217, 1217, Short.MAX_VALUE)
+                                    .addComponent(jStreetEditLabel2)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(jStreetEditTextField2, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(panel3Layout.createSequentialGroup()
+                                .addGroup(panel3Layout.createParallelGroup()
+                                    .addGroup(panel3Layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addGroup(panel3Layout.createParallelGroup()
+                                            .addComponent(JNameEditLabel2)
+                                            .addComponent(jNameEditTextField2, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jOpeningHoursEditLabel2)
+                                            .addComponent(jOpeningHoursEditTextField2, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE))
+                                        .addGap(66, 66, 66)
+                                        .addGroup(panel3Layout.createParallelGroup()
+                                            .addComponent(jCountryEditTextField2, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jCountryEditLabel2)
+                                            .addComponent(jPostcodeEditLabel2)
+                                            .addComponent(jCityEditLabel2)
+                                            .addComponent(jHouseNoEditTextField2, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jHouseNoEditLabel2)
+                                            .addComponent(jCityEditTextField2, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jPostCodeEditTextField2, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(panel3Layout.createSequentialGroup()
+                                        .addGap(114, 114, 114)
+                                        .addComponent(label2)))
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    );
+                    panel3Layout.setVerticalGroup(
+                        panel3Layout.createParallelGroup()
+                            .addGroup(panel3Layout.createParallelGroup()
+                                .addGroup(panel3Layout.createSequentialGroup()
+                                    .addGap(0, 231, Short.MAX_VALUE)
+                                    .addGroup(panel3Layout.createParallelGroup()
+                                        .addComponent(jStreetEditTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(panel3Layout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jStreetEditLabel2)))
+                                    .addGap(0, 245, Short.MAX_VALUE)))
+                            .addGroup(panel3Layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(label2)
+                                .addGap(18, 18, 18)
+                                .addGroup(panel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                    .addComponent(JNameEditLabel2)
+                                    .addComponent(jHouseNoEditLabel2))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jNameEditTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jHouseNoEditTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jOpeningHoursEditLabel2)
+                                    .addComponent(jCityEditLabel2))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel3Layout.createParallelGroup()
+                                    .addComponent(jOpeningHoursEditTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCityEditTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jPostcodeEditLabel2)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPostCodeEditTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jCountryEditLabel2)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCountryEditTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(136, Short.MAX_VALUE))
+                    );
+                }
+
+                GroupLayout jAddBranchPanelLayout = new GroupLayout(jAddBranchPanel);
+                jAddBranchPanel.setLayout(jAddBranchPanelLayout);
+                jAddBranchPanelLayout.setHorizontalGroup(
+                    jAddBranchPanelLayout.createParallelGroup()
+                        .addGroup(jAddBranchPanelLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(panel3, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE))
+                );
+                jAddBranchPanelLayout.setVerticalGroup(
+                    jAddBranchPanelLayout.createParallelGroup()
+                        .addGroup(jAddBranchPanelLayout.createSequentialGroup()
+                            .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addContainerGap())
+                        .addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                );
+            }
+            jMainTabbedPane.addTab("Add Branch", jAddBranchPanel);
         }
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
@@ -719,8 +1063,10 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addComponent(jMainPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jMainTabbedPane, GroupLayout.PREFERRED_SIZE, 567, GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(32, Short.MAX_VALUE))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jMainTabbedPane, GroupLayout.PREFERRED_SIZE, 848, GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(54, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
@@ -910,7 +1256,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         theHeadOfficeBranch.Edit(jOpeningHoursEditTextField.getText(),"");
         theHeadOfficeBranch.addressEdit(jNameEditTextField.getText(), "", Integer.valueOf(jHouseNoEditTextField.getText()), jStreetEditTextField.getText(), "", jPostCodeEditTextField.getText(), jCityEditTextField.getText(), jCountryEditTextField.getText());
-        theHeadOfficeBranch.SaveToFile();
+        theHeadOfficeBranch.SaveToFile("HeadOfficeBranch.txt");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLogOutButtonActionPerformed
@@ -945,6 +1291,32 @@ public class MainJFrame extends javax.swing.JFrame {
 
         // Save to file
         BankClients.SaveToFile("BankClients.txt");
+    }
+
+    private void JBranchListDisplay(ActionEvent e) {
+        // TODO add your code here
+        BankBranches.Display(jBranchListTextArea);
+    }
+
+    private void jSaveBranch(ActionEvent e) {
+        // TODO add your code here
+        Person branchManager = new Person();
+        Branch newBranch = new Branch("");
+
+        LocalDate date = LocalDate.now();
+
+        branchManager.Edit(jFnameTextField2.getText(), jSnameTextField2.getText(), jDOBTextField2.getText(), date.format(DateTimeFormatter.ofPattern("d/MM/uuuu")));
+
+        branchManager.editAddress("", Integer.valueOf(jHouseNumTextField2.getText()), jStreetTextField2.getText(), "", jPostCodeTextField2.getText(), jTownTextField2.getText(), jCountryTextField2.getText());
+        
+        newBranch.assignManager(branchManager);
+
+        newBranch.Edit(jOpeningHoursEditTextField2.getText(),"00-00-00");
+        newBranch.addressEdit(jNameEditTextField2.getText(), "", Integer.valueOf(jHouseNoEditTextField2.getText()), jStreetEditTextField2.getText(), "", jPostCodeEditTextField2.getText(), jCityEditTextField2.getText(), jCountryEditTextField2.getText());
+
+        BankBranches.addBranch(newBranch);
+
+        BankBranches.SaveToFile("BranchesList.txt");
     }
 
     /**
@@ -994,6 +1366,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private User theUser;
 
     private CustomerList BankClients;
+    
+    private BranchList BankBranches;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Ethan Deeley
@@ -1070,5 +1444,45 @@ public class MainJFrame extends javax.swing.JFrame {
     private JLabel jCountryLabel;
     private JTextField jCountryTextField;
     private JButton jSaveButton;
+    private JPanel jBranchListPenel;
+    private JScrollPane scrollPane2;
+    private JTextArea jBranchListTextArea;
+    private JButton JBranchListDisplay;
+    private JPanel jAddBranchPanel;
+    private JPanel panel2;
+    private JLabel jFnameLabel2;
+    private JLabel jSnameLabel2;
+    private JTextField jFnameTextField2;
+    private JTextField jSnameTextField2;
+    private JLabel jDOBLabel2;
+    private JTextField jDOBTextField2;
+    private JLabel jHouseNumLabel2;
+    private JTextField jHouseNumTextField2;
+    private JLabel jStreetLabel2;
+    private JTextField jStreetTextField2;
+    private JLabel jTownLabel2;
+    private JLabel jPostCodeLabel2;
+    private JTextField jTownTextField2;
+    private JTextField jPostCodeTextField2;
+    private JLabel jCountryLabel2;
+    private JTextField jCountryTextField2;
+    private JLabel label1;
+    private JButton jSaveBranchButton;
+    private JPanel panel3;
+    private JLabel JNameEditLabel2;
+    private JTextField jNameEditTextField2;
+    private JLabel jOpeningHoursEditLabel2;
+    private JTextField jOpeningHoursEditTextField2;
+    private JLabel jHouseNoEditLabel2;
+    private JLabel jStreetEditLabel2;
+    private JLabel jCityEditLabel2;
+    private JLabel jPostcodeEditLabel2;
+    private JLabel jCountryEditLabel2;
+    private JTextField jHouseNoEditTextField2;
+    private JTextField jStreetEditTextField2;
+    private JTextField jCityEditTextField2;
+    private JTextField jPostCodeEditTextField2;
+    private JTextField jCountryEditTextField2;
+    private JLabel label2;
     // End of variables declaration//GEN-END:variables
 }

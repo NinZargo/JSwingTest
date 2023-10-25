@@ -4,7 +4,7 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {comp jMainPanel:::p::p, comp jMainTabbedPane:::p:567:p}, space ::32:x}}"
+			"$horizontalGroup": "par l {seq {par l {comp jMainPanel:::p::p, seq l {space :::p, comp jMainTabbedPane:::p:848:p}}, space ::54:x}}"
 			"$verticalGroup": "par l {seq {comp jMainTabbedPane:::p:512:p, space :::p, comp jMainPanel:::p::p, space :0:0:x}}"
 		} ) {
 			name: "this"
@@ -40,7 +40,7 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
 				name: "jMainTabbedPane"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {par l {seq t {space :::x, comp jLoginButton:::p:62:p, space :::p, comp jRegisterButton:::p::p}, seq l {space :p:209:p, par l:::p {comp jPasswordTextField::t::145:x, comp jNameTextField::t::145:x}}}, space :0:213:x}, seq {par l {seq l {space :p:232:p, comp jLogOutButton:::p::p}, seq l {space :p:258:p, comp jNameLabel:::p::p}, seq l {space :p:250:p, comp jPasswordLabel:::p::p}}, space ::252:x}}"
+					"$horizontalGroup": "par l {seq {par l {seq {space :p:209:p, par l {seq {comp jLoginButton:::p:62:p, space :::p, comp jRegisterButton:::p::p}, par l:::p {comp jPasswordTextField::t::145:x, comp jNameTextField::t::145:x}}}, seq l {space :p:232:p, comp jLogOutButton:::p::p}, seq l {space :p:258:p, comp jNameLabel:::p::p}, seq l {space :p:250:p, comp jPasswordLabel:::p::p}}, space ::487:x}}"
 					"$verticalGroup": "par l {seq l {comp jNameLabel:::p::p, space :::p, comp jNameTextField:::p::p, space :::p, comp jPasswordLabel:::p::p, space :::p, comp jPasswordTextField:::p::p, space :p:18:p, par b {comp jLoginButton::b:p::p, comp jRegisterButton::b:p::p}, space :::p, comp jLogOutButton:::p::p, space :0:276:x}}"
 				} ) {
 					name: "jLoginPanel"
@@ -78,7 +78,7 @@ new FormModel {
 					"title": "Login"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {space :::p, par l {seq {par l:::p {seq l {comp jInput2Label:::p::p, space s:::p, comp jInput2TextField:::::x}, seq l {comp jInput1Label:::p::p, space s:::p, comp jInput1TextField:::p:106:p}, seq t {space :p:11:p, comp jAddButton:::p:35:p, space :::x, comp jSubtractButton:::p:35:p, space :p:20:p}}, par l {seq {space s:::p, comp jOutputLabel:::p::p, space s:::p, comp jOutputTextField:::p:230:p}, seq l {space :p:49:p, comp jMultButton:::p:35:p, space :p:72:p, comp jDivButton:::p:38:p}}}, seq {comp jPowerButton:::p:56:p, space s:::p, comp jCylinderVolumeButton:::p::p, space s:::p, comp jSphereVolumeButton:::p::p, space s:::p, comp jPyramidVolumeButton:::p::p}}, space ::87:x}}"
+					"$horizontalGroup": "par l {seq {space :::p, par l {seq {par l:::p {seq l {comp jInput2Label:::p::p, space s:::p, comp jInput2TextField:::::x}, seq l {comp jInput1Label:::p::p, space s:::p, comp jInput1TextField:::p:106:p}, seq t {space :p:11:p, comp jAddButton:::p:35:p, space :::x, comp jSubtractButton:::p:35:p, space :p:20:p}}, par l {seq {space s:::p, comp jOutputLabel:::p::p, space s:::p, comp jOutputTextField:::p:230:p}, seq l {space :p:49:p, comp jMultButton:::p:35:p, space :p:72:p, comp jDivButton:::p:38:p}}}, seq {comp jPowerButton:::p:56:p, space s:::p, comp jCylinderVolumeButton:::p::p, space s:::p, comp jSphereVolumeButton:::p::p, space s:::p, comp jPyramidVolumeButton:::p::p}}, space ::368:x}}"
 					"$verticalGroup": "par l {seq l {space :p:14:p, par b {comp jInput1Label::b:p::p, comp jOutputLabel::b:p::p, comp jInput1TextField::b:p::p, comp jOutputTextField::b:p::p}, space :p:21:p, par b {comp jInput2Label::b:p::p, comp jInput2TextField::b:p::p}, space :p:33:p, par b {comp jAddButton::b:p::p, comp jSubtractButton::b:p::p, comp jMultButton::b:p::p, comp jDivButton::b:p::p}, space :::p, par b {comp jPowerButton::b:p::p, comp jCylinderVolumeButton::b:p::p, comp jSphereVolumeButton::b:p::p, comp jPyramidVolumeButton::b:p::p}, space ::278:x}}"
 				} ) {
 					name: "jCalculatorPanel"
@@ -152,7 +152,7 @@ new FormModel {
 					"title": "Calculator"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp jHeadOfficeTextArea:::p:341:p}, seq l {space :p:134:p, comp jHeadOfficeButton:::p::p}}, space ::220:x}}"
+					"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp jHeadOfficeTextArea:::p:341:p}, seq l {space :p:134:p, comp jHeadOfficeButton:::p::p}}, space ::501:x}}"
 					"$verticalGroup": "par l {seq {space :::p, comp jHeadOfficeTextArea:::p:191:p, space :::p, comp jHeadOfficeButton:::p::p, space :::x}}"
 				} ) {
 					name: "jHeadOfficePanel"
@@ -167,10 +167,10 @@ new FormModel {
 						"rows": 5
 					} )
 				}, new FormLayoutConstraints( null ) {
-					"title": "HeadOffice"
+					"title": "Head Office"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {par t {seq t {par l {seq {space :::p, comp jOpeningHoursEditLabel:::p::p}, seq l {space :p:32:p, comp JNameEditLabel:::p::p}}, space s:::p, par l:::p {comp jNameEditTextField::::81:x, comp jOpeningHoursEditTextField:::::x}, space :p:35:p, par l {comp jHouseNoEditLabel::l:p::p, comp jStreetEditLabel::l:p::p, comp jCityEditLabel::l:p::p, comp jPostcodeEditLabel::l:p::p, comp jCountryEditLabel::l:p::p}}, seq t {comp jButton1:::p::p, space :p:10:p}}, par l:::p {comp jCountryEditTextField::::210:x, comp jPostCodeEditTextField:::::x, comp jCityEditTextField:::::x, comp jStreetEditTextField:::::x, comp jHouseNoEditTextField:::::x}, space ::63:x}}"
+					"$horizontalGroup": "par l {seq {par t {seq t {par l {seq {space :::p, comp jOpeningHoursEditLabel:::p::p}, seq l {space :p:32:p, comp JNameEditLabel:::p::p}}, space s:::p, par l:::p {comp jNameEditTextField::::81:x, comp jOpeningHoursEditTextField:::::x}, space :p:35:p, par l {comp jHouseNoEditLabel::l:p::p, comp jStreetEditLabel::l:p::p, comp jCityEditLabel::l:p::p, comp jPostcodeEditLabel::l:p::p, comp jCountryEditLabel::l:p::p}}, seq t {comp jButton1:::p::p, space :p:10:p}}, par l:::p {comp jCountryEditTextField::::210:x, comp jPostCodeEditTextField:::::x, comp jCityEditTextField:::::x, comp jStreetEditTextField:::::x, comp jHouseNoEditTextField:::::x}, space ::344:x}}"
 					"$verticalGroup": "par l {seq l {space :::p, par b {comp JNameEditLabel::b:p::p, comp jHouseNoEditLabel::b:p::p, comp jNameEditTextField::b:p::p, comp jHouseNoEditTextField::b:p::p}, space :p:16:p, par b {comp jOpeningHoursEditLabel::b:p::p, comp jOpeningHoursEditTextField::b:p::p, comp jStreetEditLabel::b:p::p, comp jStreetEditTextField::b:p::p}, space s:::p, par b {comp jCityEditLabel::b:p::p, comp jCityEditTextField::b:p::p}, space s:::p, par b {comp jPostcodeEditLabel::b:p::p, comp jPostCodeEditTextField::b:p::p}, space s:::p, par b {comp jCountryEditLabel::b:p::p, comp jCountryEditTextField::b:p::p}, space :p:33:p, comp jButton1:::p::p, space ::183:x}}"
 				} ) {
 					name: "jEditHeadOfficePanel"
@@ -234,13 +234,14 @@ new FormModel {
 					"title": "Edit Head Office"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :::p, comp scrollPane1::::555:x, space :::p}, seq t {space ::245:x, comp jClientInfoButton:::p::p, space :p:242:p}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp scrollPane1:::p:285:p, space u:::p, comp jClientInfoButton:::p::p, space ::139:x}}"
+					"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp scrollPane1:::p:631:p}, seq l {space :p:259:p, comp jClientInfoButton:::p:100:p}}, space ::211:x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp scrollPane1:::p:285:p, space s:::p, comp jClientInfoButton:::p:41:p, space ::122:x}}"
 				} ) {
 					name: "jClientListPanel"
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "jClientInfoButton"
 						"text": "Display"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jClientInfo", true ) )
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jClientInfo", true ) )
 					} )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -253,7 +254,7 @@ new FormModel {
 					"title": "Client List"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {par l {seq {space :::p, par l {comp jDOBLabel::l:p::p, comp jCountryLabel::l:p::p, seq l {par t:::p {comp jCountryTextField::l:::x, comp jTownTextField::l:::x, comp jFnameLabel::l:::x, comp jFnameTextField::l:::x, comp jHouseNumTextField::l:::x, comp jHouseNumLabel::l:::x, comp jTownLabel::l:p::p, comp jDOBTextField::l:::x}, space :p:30:p, par l:::p {comp jPostCodeLabel:::p::p, comp jStreetLabel:::p::p, comp jSnameLabel::::107:x, comp jSnameTextField::::107:x, comp jStreetTextField::l::107:x, comp jPostCodeTextField::l::107:x}}}}, seq l {space :p:60:p, comp jSaveButton:::p:103:p}}, space ::333:x}}"
+					"$horizontalGroup": "par l {seq {par l {seq {space :::p, par l {comp jDOBLabel::l:p::p, comp jCountryLabel::l:p::p, seq l {par t:::p {comp jCountryTextField::l:::x, comp jTownTextField::l:::x, comp jFnameLabel::l:::x, comp jFnameTextField::l:::x, comp jHouseNumTextField::l:::x, comp jHouseNumLabel::l:::x, comp jTownLabel::l:p::p, comp jDOBTextField::l:::x}, space :p:30:p, par l:::p {comp jPostCodeLabel:::p::p, comp jStreetLabel:::p::p, comp jSnameLabel::::107:x, comp jSnameTextField::::107:x, comp jStreetTextField::l::107:x, comp jPostCodeTextField::l::107:x}}}}, seq l {space :p:60:p, comp jSaveButton:::p:103:p}}, space ::614:x}}"
 					"$verticalGroup": "par l {seq l {space :::p, par b {comp jFnameLabel::b:p::p, comp jSnameLabel::b:p::p}, space :::p, par b {comp jFnameTextField::b:p::p, comp jSnameTextField::b:p::p}, space s:::p, comp jDOBLabel:::p::p, space :::p, comp jDOBTextField:::p::p, space s:::p, par b {comp jHouseNumLabel::b:p::p, comp jStreetLabel::b:p::p}, space :::p, par b {comp jHouseNumTextField::b:p::p, comp jStreetTextField::b:p::p}, space u:::p, par l {comp jTownLabel:::p::p, comp jPostCodeLabel:::p::p}, space :::p, par b {comp jTownTextField::b:p::p, comp jPostCodeTextField::b:p::p}, space u:::p, comp jCountryLabel:::p::p, space :::p, comp jCountryTextField:::p::p, space s:::p, comp jSaveButton:::p:42:p, space ::81:x}}"
 				} ) {
 					name: "jAddClientPanel"
@@ -321,6 +322,165 @@ new FormModel {
 				}, new FormLayoutConstraints( null ) {
 					"title": "Add Client"
 				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {comp scrollPane2:::p:577:p, space :0:271:x}, seq l {space :p:206:p, comp JBranchListDisplay:::p:130:p, space ::512:x}}"
+					"$verticalGroup": "par l {seq l {comp scrollPane2:::p:275:p, space s:::p, comp JBranchListDisplay:::p:51:p, space :0:128:x}}"
+				} ) {
+					name: "jBranchListPenel"
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane2"
+						add( new FormComponent( "javax.swing.JTextArea" ) {
+							name: "jBranchListTextArea"
+						} )
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "JBranchListDisplay"
+						"text": "Display"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "JBranchListDisplay", true ) )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Branch List"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {space :::p, comp panel2:::p::p, space :::p, comp panel3::::430:x}}"
+					"$verticalGroup": "par l {seq {comp panel2:::::x, space :::p}, comp panel3:::::x}"
+				} ) {
+					name: "jAddBranchPanel"
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {seq {space ::157:x, par l {seq t {comp label1:::p:94:p, space :p:155:p}, seq t {comp jSaveBranchButton:::p:125:p, space :::p}}}};par l {seq {space :0:0:x, par l {seq {comp jFnameLabel2:::p:91:p, space :30:30:p, comp jSnameLabel2:::p:107:p}, seq {comp jFnameTextField2:::p:91:p, space :30:30:p, comp jSnameTextField2:::p:107:p}, comp jDOBLabel2:::p::p, comp jDOBTextField2:::p:91:p, seq {comp jHouseNumLabel2:::p::p, space :30:30:p, comp jStreetLabel2:::p::p}, seq {comp jHouseNumTextField2:::p:91:p, space :30:30:p, comp jStreetTextField2:::p:107:p}, seq {comp jTownLabel2:::p::p, space :87:87:p, comp jPostCodeLabel2:::p::p}, seq {comp jTownTextField2:::p:91:p, space :30:30:p, comp jPostCodeTextField2:::p:107:p}, comp jCountryLabel2:::p::p, comp jCountryTextField2:::p:91:p}, space :0:0:x}}"
+						"$verticalGroup": "par l {seq l {space :p:21:p, comp label1:::p:40:p, space ::339:x, comp jSaveBranchButton:::p::p, space :p:36:p}};par l {seq {space :0:0:x, par l {comp jFnameLabel2:::p::p, comp jSnameLabel2:::p::p}, space :6:6:p, par l {comp jFnameTextField2:::p::p, comp jSnameTextField2:::p::p}, space :18:18:p, comp jDOBLabel2:::p::p, space :6:6:p, comp jDOBTextField2:::p::p, space :18:18:p, par l {comp jHouseNumLabel2:::p::p, comp jStreetLabel2:::p::p}, space :6:6:p, par l {comp jHouseNumTextField2:::p::p, comp jStreetTextField2:::p::p}, space :12:12:p, par l {comp jTownLabel2:::p::p, comp jPostCodeLabel2:::p::p}, space :6:6:p, par l {comp jTownTextField2:::p::p, comp jPostCodeTextField2:::p::p}, space :12:12:p, comp jCountryLabel2:::p::p, space :6:6:p, comp jCountryTextField2:::p::p, space :0:0:x}}"
+					} ) {
+						name: "panel2"
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jFnameLabel2"
+							"text": "First Name"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jSnameLabel2"
+							"text": "Surname"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jFnameTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jSnameTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jDOBLabel2"
+							"text": "DOB"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jDOBTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jHouseNumLabel2"
+							"text": "House Number"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jHouseNumTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jStreetLabel2"
+							"text": "Street"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jStreetTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jTownLabel2"
+							"text": "Town"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jPostCodeLabel2"
+							"text": "Post Code"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jTownTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jPostCodeTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jCountryLabel2"
+							"text": "Country"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jCountryTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label1"
+							"text": "Manager"
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "jSaveBranchButton"
+							"text": "Save"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jSaveBranch", true ) )
+						} )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {seq {par l {seq l {space :p:17:p, par l {comp JNameEditLabel2::l:p::p, comp jNameEditTextField2::l:p:81:p, comp jOpeningHoursEditLabel2::l:p::p, comp jOpeningHoursEditTextField2::l:p:81:p}, space :p:66:p, par l {comp jCountryEditTextField2:::p:210:p, comp jCountryEditLabel2:::p::p, comp jPostcodeEditLabel2:::p::p, comp jCityEditLabel2:::p::p, comp jHouseNoEditTextField2:::p:210:p, comp jHouseNoEditLabel2:::p::p, comp jCityEditTextField2::l:p:210:p, comp jPostCodeEditTextField2::l:p:210:p}}, seq l {space :p:114:p, comp label2:::p::p}}, space :::x}};par l {seq {space :1217:1217:x, comp jStreetEditLabel2:::p::p, space :24:24:p, comp jStreetEditTextField2:::p:210:p, space :0:0:x}}"
+						"$verticalGroup": "par l {seq l {space :p:29:p, comp label2:::p::p, space s:::p, par b {comp JNameEditLabel2::b:p::p, comp jHouseNoEditLabel2::b:p::p}, space :::p, par b {comp jNameEditTextField2::b:p::p, comp jHouseNoEditTextField2::b:p::p}, space s:::p, par b {comp jOpeningHoursEditLabel2::b:p::p, comp jCityEditLabel2::b:p::p}, space :::p, par l {comp jOpeningHoursEditTextField2:::p::p, comp jCityEditTextField2::l:p::p}, space s:::p, comp jPostcodeEditLabel2:::p::p, space :::p, comp jPostCodeEditTextField2:::p::p, space s:::p, comp jCountryEditLabel2:::p::p, space u:::p, comp jCountryEditTextField2:::p::p, space ::136:x}};par l {seq {space :0:231:x, par l {comp jStreetEditTextField2:::p::p, seq {space :6:6:p, comp jStreetEditLabel2:::p::p}}, space :0:245:x}}"
+					} ) {
+						name: "panel3"
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "JNameEditLabel2"
+							"text": "Name"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jNameEditTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jOpeningHoursEditLabel2"
+							"text": "Opening Hours"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jOpeningHoursEditTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jHouseNoEditLabel2"
+							"text": "House No"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jStreetEditLabel2"
+							"text": "Street"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jCityEditLabel2"
+							"text": "City"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jPostcodeEditLabel2"
+							"text": "Postcode"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "jCountryEditLabel2"
+							"text": "Country"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jHouseNoEditTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jStreetEditTextField2"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jStreetEditTextFieldActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jCityEditTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jPostCodeEditTextField2"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jPostCodeEditTextFieldActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "jCountryEditTextField2"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label2"
+							"text": "Branch"
+						} )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Add Branch"
+				} )
 			} )
 			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
 				name: "jMenuBarMain"
@@ -339,7 +499,7 @@ new FormModel {
 			}
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 601, 908 )
+			"size": new java.awt.Dimension( 910, 908 )
 		} )
 	}
 }

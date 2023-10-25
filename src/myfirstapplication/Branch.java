@@ -19,7 +19,6 @@ public class Branch {
     private String SortCode;
     private Boolean Loaded;
     private Person Manager;
-    private String filename;
     private final IAddress theAddress;
     
     public final void Edit(String strWorkingHours, String strSortCode){
@@ -33,13 +32,11 @@ public class Branch {
     
     
     // Branch cant exist without an address so it has been added to Constructor
-    public Branch(){
+    public Branch(String filename){
         theAddress = new IAddress();
         Manager = new Person();
         
-        filename = "headOffice.txt";
-        
-        Loaded = this.LoadFromFile();
+        Loaded = this.LoadFromFile(filename);
     }
     
     public void assignManager(Person newManager){
@@ -50,13 +47,13 @@ public class Branch {
          theAddress.Edit(strname, strhouse_name, inthouse_no, strstreet, strarea, strpost_code, strtown, strcountry);
      }
     
-    //@Override because toString is a built in method
+    //@Override because toString is a built-in method
     @Override
     public String toString() {
         return(WorkingHours + "\n" + SortCode);
     }
     
-    public Boolean SaveToFile(){
+    public Boolean SaveToFile(String filename){
         FileWriter writer;
         boolean succesful;
         
@@ -76,7 +73,7 @@ public class Branch {
       return succesful;
     }
     
-    public Boolean LoadFromFile() {
+    public Boolean LoadFromFile(String filename) {
         boolean succesful;
         
         String record;
@@ -119,5 +116,27 @@ public class Branch {
         jAddressTextArea.append(String.format("\n\nManager: %s\n\n", Manager.getName()));
         
         theAddress.Display(jAddressTextArea);
-    }        
+    }
+
+    public String[] convertToArray(){
+        String [] branchArray = new String[2];
+        String [] resultArray = new String[16];
+
+        branchArray[0] = WorkingHours;
+        branchArray[1] = SortCode;
+
+        String [] managerArray = new String[9];
+        managerArray = Manager.convertToArray();
+
+        String [] addressArray = new String[5];
+        addressArray = theAddress.convertToArray();
+
+        System.arraycopy(branchArray, 0, resultArray, 0, 2);
+        System.arraycopy(managerArray, 0, resultArray, 2, 9);
+        System.arraycopy(addressArray, 0, resultArray, 11, 5);
+
+        return resultArray;
+    }
+
+
 }

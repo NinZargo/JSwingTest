@@ -7,45 +7,37 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class CustomerList {
-    ArrayList<Person> Clients;
+public class BranchList {
+    ArrayList<Branch> Branches;
 
-    public CustomerList(){
-        Clients = new ArrayList<Person>();
+    public BranchList(String filename){
+        Branches = new ArrayList<Branch>();
 
-        this.LoadFromFile("BankClients.txt");
+        this.LoadFromFile(filename);
     }
 
-    public void addClient(Person src){
-        Clients.add(src);
+    public void addBranch(Branch src){
+        Branches.add(src);
     }
 
-    public void removeClient(Person src){
-        Clients.remove(src);
-    }
-
-    public void removeClient(String Surname){
-        for ( int i = 0; i < Clients.size(); i++){
-            if ( Clients.get(i).getSurname().equals(Surname)){
-                Clients.remove(i);
-            }
-        }
+    public void removeBranch(Branch src){
+        Branches.remove(src);
     }
 
     public void Display(JTextArea jClientsTextArea){
-        for ( int i = 0; i < Clients.size(); i++){
-            Clients.get(i).Display(jClientsTextArea);
+        for ( int i = 0; i < Branches.size(); i++){
+            Branches.get(i).Display(jClientsTextArea);
 
             jClientsTextArea.append("\n\n##\n\n");
         }
     }
 
     public String[][] convertToArray(){
-        int rowCount = Clients.size();
+        int rowCount = Branches.size();
         String [][] resultArray = new String[rowCount][9];
 
         for (int i = 0; i < rowCount; i++){
-            Person temp = Clients.get(i);
+            Branch temp = Branches.get(i);
             resultArray[i] = temp.convertToArray();
         }
 
@@ -61,7 +53,7 @@ public class CustomerList {
             writer = new FileWriter(filename, false);
 
             for(String[] row : dataArray){
-                for(int i = 0; i < 9; i++){
+                for(int i = 0; i < 16; i++){
                     writer.write(row[i] + ", ");
                 }
                 writer.write("\n");
@@ -87,16 +79,25 @@ public class CustomerList {
             while ((record = bin.readLine()) != null){
                 String[] split = record.split(", ");
 
-                Person tempPerson = new Person();
-                tempPerson.Edit(split[0], split[1], split[2], split[3]);
-                tempPerson.editAddress("", Integer.valueOf(split[4]), split[5], "", split[6], split[7], split[8]);
+                Branch tempBranch = new Branch("");
+                Person tempManager = new Person();
 
-                this.addClient(tempPerson);
+                tempManager.Edit(split[2], split[3], split[4], split[5]);
+                tempManager.editAddress("", Integer.valueOf(split[6]), split[7], "", split[8], split[9], split[10]);
+
+                tempBranch.assignManager(tempManager);
+
+                tempBranch.Edit(split[0], split[1]);
+                tempBranch.addressEdit("", "", Integer.valueOf(split[11]), split[12], "", split[14], split[13], split[15]);
+
+                this.addBranch(tempBranch);
             }
+
+
+
 
         } catch ( IOException ioe){
         }
+
     }
-
-
 }
