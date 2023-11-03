@@ -1,5 +1,7 @@
 package myfirstapplication;
 
+import javax.swing.*;
+
 public class SavingAccount extends Account{
     protected double WithdrawLimit;
 
@@ -14,6 +16,12 @@ public class SavingAccount extends Account{
             super.Accessed();
             addToStatement(outAmount, "", "");
         }
+    }
+
+    public void DisplaySavings(JTextArea src){
+        src.setLineWrap(true);
+        src.append(super.toString());
+        src.append("\nWithdraw Limit = " + WithdrawLimit + "\n");
     }
 
 }

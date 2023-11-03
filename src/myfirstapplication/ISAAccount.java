@@ -1,5 +1,7 @@
 package myfirstapplication;
 
+import javax.swing.*;
+
 public class ISAAccount extends Account{
     protected double MaximumLimitPerYear;
     protected double DepositThisYear;
@@ -18,5 +20,11 @@ public class ISAAccount extends Account{
             super.Accessed();
             addToStatement(inAmount, "", "");
         }
+    }
+
+    public void DisplayISA(JTextArea src){
+        src.setLineWrap(true);
+        src.append(super.toString());
+        src.append("\n Deposited This Year = " + DepositThisYear + "\n Maximum Limit Per Year = " + MaximumLimitPerYear + "\n");
     }
 }
