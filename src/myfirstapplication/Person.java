@@ -4,6 +4,9 @@
  */
 package myfirstapplication;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JTextArea;
@@ -13,20 +16,38 @@ import javax.swing.JTextArea;
  * @author ethan
  */
 public class Person {
+
+    @Getter @Setter
     private String FirstName;
+    @Getter @Setter
     private String Surname;
+    @Getter
     private LocalDate DOB;
+    @Getter
     private IAddress HomeAddress;
+    private Account myAccount;
     private LocalDate CustomerSince;
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
     
     public Person(){
         
         HomeAddress = new IAddress();
+
+        myAccount = new Account();
         
         Edit("","","1/01/2000", "1/01/2000");
     }
-    
+
+    public void setDOB(String DOB) {
+
+        this.DOB = LocalDate.parse(DOB, formatter);;
+    }
+
+    public String getName(){
+        return(String.format("%s %s", FirstName, Surname));
+    }
+
+
     public void Edit(String strfirstname, String strsurname, String strdob, String strcustomersince) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         
@@ -57,10 +78,6 @@ public class Person {
         return(givenDOB.equals(DOB));
     }
     
-    public String getName(){
-        return(String.format("%s %s", FirstName, Surname));
-    }
-    
     public void Display(JTextArea jAddressTextArea){
         jAddressTextArea.setLineWrap(true);
         jAddressTextArea.append(toString());
@@ -68,10 +85,6 @@ public class Person {
         jAddressTextArea.append("\n \n");
         
         HomeAddress.Display(jAddressTextArea);
-    }
-
-    public String getSurname() {
-        return Surname;
     }
 
     public String[] convertToArray(){

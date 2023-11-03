@@ -1,19 +1,22 @@
 package myfirstapplication;
 
+import lombok.RequiredArgsConstructor;
+
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class CustomerList {
     ArrayList<Person> Clients;
 
-    public CustomerList(){
+    public CustomerList(String filename){
         Clients = new ArrayList<Person>();
 
-        this.LoadFromFile("BankClients.txt");
+        this.LoadFromFile(filename);
     }
 
     public void addClient(Person src){
@@ -30,6 +33,15 @@ public class CustomerList {
                 Clients.remove(i);
             }
         }
+    }
+
+    public Person find(Person src) {
+        for (Person tempPerson : Clients) {
+            if(Objects.equals(src.getName(), tempPerson.getName()) && Objects.equals(src.getDOB(), tempPerson.getDOB())){
+                return tempPerson;
+            }
+        }
+        return null;
     }
 
     public void Display(JTextArea jClientsTextArea){

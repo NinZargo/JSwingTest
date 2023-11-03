@@ -92,10 +92,6 @@ public class BranchList {
 
                 this.addBranch(tempBranch);
             }
-
-
-
-
         } catch ( IOException ioe){
         }
 
