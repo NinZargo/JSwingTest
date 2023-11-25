@@ -1,19 +1,17 @@
 package myfirstapplication;
 
 import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
-public class BranchList {
-    ArrayList<Branch> Branches;
+public class BranchList  implements Serializable {
+    private ArrayList<Branch> Branches;
+    private final String filename = "Branches/BranchesList.txt";
 
-    public BranchList(String filename){
+    public BranchList(){
         Branches = new ArrayList<Branch>();
 
-        this.LoadFromFile(filename);
+        this.LoadFromFile();
     }
 
     public void addBranch(Branch src){
@@ -25,74 +23,47 @@ public class BranchList {
     }
 
     public void Display(JTextArea jClientsTextArea){
-        for ( int i = 0; i < Branches.size(); i++){
-            Branches.get(i).Display(jClientsTextArea);
+        for (Branch branch : Branches) {
+            branch.Display(jClientsTextArea);
 
             jClientsTextArea.append("\n\n##\n\n");
         }
     }
 
-    public String[][] convertToArray(){
-        int rowCount = Branches.size();
-        String [][] resultArray = new String[rowCount][9];
+    public void SaveToFile(){
+        try {
+            FileOutputStream fos = new FileOutputStream(filename);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-        for (int i = 0; i < rowCount; i++){
-            Branch temp = Branches.get(i);
-            resultArray[i] = temp.convertToArray();
+            oos.writeObject(this.Branches);
+
+            oos.flush();
+            oos.close();
         }
-
-        return resultArray;
-    }
-
-    public void SaveToFile(String filename){
-        FileWriter writer;
-
-        String[][] dataArray = this.convertToArray();
-
-        try{
-            writer = new FileWriter(filename, false);
-
-            for(String[] row : dataArray){
-                for(int i = 0; i < 16; i++){
-                    writer.write(row[i] + ", ");
-                }
-                writer.write("\n");
-            }
-
-            writer.flush();
-            writer.close();
-            writer = null;
-        }catch (IOException ioe){
+        catch (IOException ioe) {
+            JOptionPane.showMessageDialog(null, "Error: " + ioe, "File Read Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void LoadFromFile(String filename){
-        FileReader reader;
-        String record;
+    @SuppressWarnings("unchecked")
+    public void LoadFromFile(){
+        try {
+            FileInputStream fileIn = new FileInputStream(filename);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
 
-        try{
-            reader = new FileReader(filename);
-            BufferedReader bin = new BufferedReader(reader);
+            Object obj = in.readObject();
 
-            record = new String();
-
-            while ((record = bin.readLine()) != null){
-                String[] split = record.split(", ");
-
-                Branch tempBranch = new Branch("");
-                Person tempManager = new Person();
-
-                tempManager.Edit(split[2], split[3], split[4], split[5]);
-                tempManager.editAddress("", Integer.valueOf(split[6]), split[7], "", split[8], split[9], split[10]);
-
-                tempBranch.assignManager(tempManager);
-
-                tempBranch.Edit(split[0], split[1]);
-                tempBranch.addressEdit("", "", Integer.valueOf(split[11]), split[12], "", split[14], split[13], split[15]);
-
-                this.addBranch(tempBranch);
+            if (obj instanceof ArrayList<?> && !((ArrayList<?>) obj).isEmpty() && ((ArrayList<?>) obj).get(0) instanceof Branch) {
+                this.Branches = (ArrayList<Branch>) obj;
+            } else { // Checking object cast
+                JOptionPane.showMessageDialog(null, "File is empty or not of type Branch ", "File Read Error", JOptionPane.ERROR_MESSAGE);
             }
-        } catch ( IOException ioe){
+
+
+            in.close();
+            fileIn.close();
+        } catch (IOException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "Branch Error: " + e, "File Read Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }

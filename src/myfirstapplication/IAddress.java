@@ -4,13 +4,19 @@
  */
 package myfirstapplication;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.swing.JTextArea;
+import java.io.Serializable;
 
 /**
  *
  * @author ethan
  */
-public class IAddress {
+@Getter
+@Setter
+public class IAddress implements Serializable {
     private String name;
     private String house_name;
     private Integer house_no;
@@ -45,12 +51,11 @@ public class IAddress {
         post_code = strpost_code;
         town = strtown;
         country = strcountry;
-        
     }
     
     @Override
     public String toString() {
-        return( name + ", " + house_name + ", " + String.valueOf(house_no) + " " + street + ", \n" + area + ", " + post_code + ", \n" + town + ", " + country);
+        return( name + ", " + house_name + ", " + house_no + " " + street + ", \n" + area + ", " + post_code + ", \n" + town + ", " + country);
     }
     
     public String toFileString() {

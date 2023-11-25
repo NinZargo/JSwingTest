@@ -1,16 +1,17 @@
 package myfirstapplication;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class CustomerList {
+@Getter
+@Setter
+public class CustomerList extends AbstractListModel<Person> implements Serializable {
     ArrayList<Person> Clients;
 
     public CustomerList(String filename){
@@ -21,10 +22,12 @@ public class CustomerList {
 
     public void addClient(Person src){
         Clients.add(src);
+        this.fireIntervalAdded(this, Clients.size() - 1, Clients.size() - 1);
     }
 
     public void removeClient(Person src){
         Clients.remove(src);
+        this.fireIntervalRemoved(this, Clients.size() - 1, Clients.size() - 1);
     }
 
     public void removeClient(String Surname){
@@ -52,6 +55,8 @@ public class CustomerList {
         }
     }
 
+
+
     public String[][] convertToArray(){
         int rowCount = Clients.size();
         String [][] resultArray = new String[rowCount][9];
@@ -65,50 +70,55 @@ public class CustomerList {
     }
 
     public void SaveToFile(String filename){
-        FileWriter writer;
+        try {
+            FileOutputStream fos = new FileOutputStream(filename);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-        String[][] dataArray = this.convertToArray();
+            oos.writeObject(this.Clients);
 
-        try{
-            writer = new FileWriter(filename, false);
-
-            for(String[] row : dataArray){
-                for(int i = 0; i < 9; i++){
-                    writer.write(row[i] + ", ");
-                }
-                writer.write("\n");
-            }
-
-            writer.flush();
-            writer.close();
-            writer = null;
-        }catch (IOException ioe){
+            oos.flush();
+            oos.close();
+        }
+        catch (IOException ioe) {
+            JOptionPane.showMessageDialog(null, "Cust Error: " + ioe, "File Read Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cust Error: " + ioe, "File Read Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
+    @SuppressWarnings("unchecked")
     public void LoadFromFile(String filename){
-        FileReader reader;
-        String record;
+        try {
+            FileInputStream fileIn = new FileInputStream(filename);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
 
-        try{
-            reader = new FileReader(filename);
-            BufferedReader bin = new BufferedReader(reader);
+            Object obj = in.readObject();
 
-            record = new String();
-
-            while ((record = bin.readLine()) != null){
-                String[] split = record.split(", ");
-
-                Person tempPerson = new Person();
-                tempPerson.Edit(split[0], split[1], split[2], split[3]);
-                tempPerson.editAddress("", Integer.valueOf(split[4]), split[5], "", split[6], split[7], split[8]);
-
-                this.addClient(tempPerson);
+            if (obj instanceof ArrayList<?> && !((ArrayList<?>) obj).isEmpty() && ((ArrayList<?>) obj).get(0) instanceof Person) {
+                this.Clients = (ArrayList<Person>) obj;
+            } else { // Checking object cast
+                    JOptionPane.showMessageDialog(null, "File is empty or not of type Person ", "File Read Error", JOptionPane.ERROR_MESSAGE);
             }
 
-        } catch ( IOException ioe){
+
+            in.close();
+            fileIn.close();
+        } catch (IOException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e, "File Read Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
 
+    @Override
+    public int getSize() {
+        return Clients.size();
+    }
+
+    @Override
+    public Person getElementAt(int index) {
+        return Clients.get(index);
+    }
+
+    public int getIndexOf(Person person){
+        return Clients.indexOf(person);
+    }
 }

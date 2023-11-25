@@ -1,27 +1,57 @@
 package myfirstapplication;
 
-import javax.swing.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.swing.*;
+import java.io.Serial;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+@Getter @Setter
 public class SavingAccount extends Account{
-    protected double WithdrawLimit;
+    private double fee;
+    private Boolean reducedRate = false;
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     public SavingAccount(int AccountNo, String SortCode){
         super(AccountNo, SortCode);
-        WithdrawLimit = 200;
+    }
+
+    public SavingAccount(){
+        super();
+    }
+    public SavingAccount(String SortCode, String NameOfBank, Double Rate){
+        super(SortCode, NameOfBank, Rate);
     }
     @Override
     public void Withdraw(double outAmount){
-        if(outAmount <= WithdrawLimit){
-            Balance -= outAmount;
-            super.Accessed();
-            addToStatement(outAmount, "", "");
+        long daysDifference = ChronoUnit.DAYS.between(super.LastReportedDate, LocalDate.now());
+        if(daysDifference < 90){
+            fee += 10;
+            if(!reducedRate){
+                reducedRate = true;
+                Rate -= 0.49;
+            }
+        }
+
+        super.Withdraw(outAmount);
+
+    }
+
+    public void interest(){
+        long daysDifference = ChronoUnit.DAYS.between(super.LastReportedDate, LocalDate.now());
+
+        if (daysDifference < 90) {
+            super.interest();
         }
     }
 
-    public void DisplaySavings(JTextArea src){
-        src.setLineWrap(true);
-        src.append(super.toString());
-        src.append("\nWithdraw Limit = " + WithdrawLimit + "\n");
+    public void Display(JTextArea src){
+        src.append("Savings Account : ");
+        super.Display(src);
+        src.append("\nFee: " + fee);
     }
 
 }

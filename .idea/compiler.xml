@@ -2,7 +2,11 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
+      <profile default="true" name="Default" enabled="true">
+        <processorPath>
+          <entry name="$PROJECT_DIR$/../../lombok-233.11555.14.zip" />
+        </processorPath>
+      </profile>
     </annotationProcessing>
   </component>
 </project>

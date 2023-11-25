@@ -1,11 +1,3 @@
-ethan ruauri
-Bank Employee
-##
-
-Ethan ruauri
-Bank Manager
-##
-
 Ethan Deeley
 Bank Manager
 ##
@@ -18,4 +10,7 @@ Bank Manager
 ##
 woah hehe
 Bank Employee
+##
+Emma  emma
+Bank Admin
 ##
