@@ -3,6 +3,7 @@ package myfirstapplication;
 import javax.swing.*;
 import java.io.Serial;
 import java.time.LocalDate;
+import java.util.StringJoiner;
 
 public class ISAAccount extends Account{
     protected double MaximumLimitPerYear;
@@ -26,7 +27,7 @@ public class ISAAccount extends Account{
         if( DepositThisYear > MaximumLimitPerYear){
             Balance += inAmount;
             super.Accessed();
-            addToStatement(inAmount, "", "");
+            transactions++;
         }
     }
 
@@ -47,11 +48,6 @@ public class ISAAccount extends Account{
     }
 
     public String toString(){
-        return "SortCode = " + SortCode + '\n' +
-                ", AccountNo=" + AccountNo +
-                ", \nBalance = " + Balance +
-                ", \nNameOfBank = " + NameOfBank + '\n' +
-                ", \nRate = " + Rate +
-                ", \nLast Accessed=" + LastReportedDate;
+        return new StringJoiner(", ", super.toString(), " ").add(String.valueOf(MaximumLimitPerYear)).add(String.valueOf(DepositThisYear)).toString();
     }
 }

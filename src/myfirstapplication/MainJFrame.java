@@ -8,11 +8,14 @@ import java.awt.*;
 import java.awt.event.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
 import javax.swing.border.*;
 import javax.swing.event.*;
+import com.jgoodies.forms.factories.*;
+import com.jgoodies.forms.layout.*;
 
 /**
  *
@@ -28,6 +31,14 @@ public class MainJFrame extends javax.swing.JFrame {
         Person person = BankClients.getElementAt(index);
 
         setEdit(person);
+
+        listModel.clear();
+        System.out.println(Arrays.toString(person.getAccounts()));
+        for (Account account : person.getAccounts()) {
+            listModel.addElement(account);
+        }
+
+
     }
 
     private void setEdit(Person person) {
@@ -65,6 +76,18 @@ public class MainJFrame extends javax.swing.JFrame {
         return newClient;
     }
 
+    private void jAccountListValueChanged(ListSelectionEvent e) {
+        int index = jClientInfoList.getSelectedIndex();
+        Person person = BankClients.getElementAt(index);
+
+        int aIndex = jAccountList.getSelectedIndex();
+        Account account = person.getAccounts()[aIndex];
+
+        jAccountNumLabel.setText(String.valueOf(account.getAccountNo()));
+        jSortCodeLabel.setText(account.getSortCode());
+
+    }
+
     public MainJFrame() {
         
         theHeadOfficeBranch = new Branch();
@@ -75,6 +98,8 @@ public class MainJFrame extends javax.swing.JFrame {
         BankClients = new CustomerList("Accounts/BankClients.txt");
         
         BankBranches = new BranchList();
+
+        listModel = new DefaultListModel<>();
         
         // Tab Code
         jTabInMemory = new java.awt.Component[15];
@@ -155,6 +180,14 @@ public class MainJFrame extends javax.swing.JFrame {
         jSaveButton = new JButton();
         jRemoveButton = new JButton();
         jFindButton = new JButton();
+        scrollPane3 = new JScrollPane();
+        jAccountList = new JList<>(listModel);
+        jAmountLabel = new JLabel();
+        jAmountTextField = new JTextField();
+        jDepositButton = new JButton();
+        jWithdrawButton = new JButton();
+        jSortCodeLabel = new JLabel();
+        jAccountNumLabel = new JLabel();
         jHeadOfficePanel = new JPanel();
         jHeadOfficeButton = new JButton();
         jHeadOfficeTextArea = new JTextArea();
@@ -266,7 +299,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(jStatusMessageLabel)
                                 .addComponent(jStatusAnimationLabel)
                                 .addComponent(jProgressCompletionBar, GroupLayout.PREFERRED_SIZE, 374, GroupLayout.PREFERRED_SIZE))
-                            .addGap(0, 530, Short.MAX_VALUE))
+                            .addGap(0, 616, Short.MAX_VALUE))
                 );
                 jStatusPanelLayout.setVerticalGroup(
                     jStatusPanelLayout.createParallelGroup()
@@ -285,15 +318,14 @@ public class MainJFrame extends javax.swing.JFrame {
             jMainPanelLayout.setHorizontalGroup(
                 jMainPanelLayout.createParallelGroup()
                     .addGroup(GroupLayout.Alignment.TRAILING, jMainPanelLayout.createSequentialGroup()
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jStatusPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jStatusPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
             );
             jMainPanelLayout.setVerticalGroup(
                 jMainPanelLayout.createParallelGroup()
                     .addGroup(jMainPanelLayout.createSequentialGroup()
                         .addComponent(jStatusPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 246, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
             );
         }
 
@@ -345,7 +377,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addGroup(jLoginPanelLayout.createSequentialGroup()
                                     .addGap(41, 41, 41)
                                     .addComponent(jPasswordLabel)))
-                            .addContainerGap(408, Short.MAX_VALUE))
+                            .addContainerGap(531, Short.MAX_VALUE))
                 );
                 jLoginPanelLayout.setVerticalGroup(
                     jLoginPanelLayout.createParallelGroup()
@@ -466,7 +498,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                     .addComponent(jSphereVolumeButton)
                                     .addGap(18, 18, 18)
                                     .addComponent(jPyramidVolumeButton)))
-                            .addContainerGap(343, Short.MAX_VALUE))
+                            .addContainerGap(466, Short.MAX_VALUE))
                 );
                 jCalculatorPanelLayout.setVerticalGroup(
                     jCalculatorPanelLayout.createParallelGroup()
@@ -545,94 +577,140 @@ public class MainJFrame extends javax.swing.JFrame {
                 jFindButton.setText("Find");
                 jFindButton.addActionListener(e -> jFindButtonPressed(e));
 
+                //======== scrollPane3 ========
+                {
+
+                    //---- jAccountList ----
+                    jAccountList.addListSelectionListener(e -> jAccountListValueChanged(e));
+                    scrollPane3.setViewportView(jAccountList);
+                }
+
+                //---- jAmountLabel ----
+                jAmountLabel.setText("Amount");
+
+                //---- jDepositButton ----
+                jDepositButton.setText("Deposit");
+
+                //---- jWithdrawButton ----
+                jWithdrawButton.setText("Withdraw");
+
+                //---- jSortCodeLabel ----
+                jSortCodeLabel.setText("SortCode");
+
+                //---- jAccountNumLabel ----
+                jAccountNumLabel.setText("AccountNum");
+
                 GroupLayout jClientListPanelLayout = new GroupLayout(jClientListPanel);
                 jClientListPanel.setLayout(jClientListPanelLayout);
                 jClientListPanelLayout.setHorizontalGroup(
                     jClientListPanelLayout.createParallelGroup()
                         .addGroup(GroupLayout.Alignment.TRAILING, jClientListPanelLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 461, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                            .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 285, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jClientListPanelLayout.createParallelGroup()
-                                .addComponent(jCountryLabel)
-                                .addGroup(jClientListPanelLayout.createSequentialGroup()
-                                    .addGroup(jClientListPanelLayout.createParallelGroup()
-                                        .addComponent(jTownTextField, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTownLabel))
-                                    .addGap(46, 46, 46)
-                                    .addGroup(jClientListPanelLayout.createParallelGroup()
-                                        .addComponent(jPostCodeLabel)
-                                        .addComponent(jPostCodeTextField, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jDOBTextField, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jDOBLabel)
                                 .addGroup(jClientListPanelLayout.createSequentialGroup()
                                     .addGroup(jClientListPanelLayout.createParallelGroup()
-                                        .addComponent(jHouseNumTextField, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jHouseNumLabel)
-                                        .addComponent(jFnameTextField, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jFnameLabel3, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE))
-                                    .addGap(58, 58, 58)
+                                        .addGroup(jClientListPanelLayout.createSequentialGroup()
+                                            .addGroup(jClientListPanelLayout.createParallelGroup()
+                                                .addComponent(jHouseNumTextField, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jHouseNumLabel)
+                                                .addComponent(jFnameTextField, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jFnameLabel3, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE))
+                                            .addGap(58, 58, 58)
+                                            .addGroup(jClientListPanelLayout.createParallelGroup()
+                                                .addComponent(jSnameLabel, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jSnameTextField, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jStreetLabel)
+                                                .addComponent(jStreetTextField, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(jClientListPanelLayout.createSequentialGroup()
+                                            .addGroup(jClientListPanelLayout.createParallelGroup()
+                                                .addComponent(jTownTextField, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTownLabel))
+                                            .addGap(46, 46, 46)
+                                            .addGroup(jClientListPanelLayout.createParallelGroup()
+                                                .addComponent(jPostCodeLabel)
+                                                .addComponent(jPostCodeTextField, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jSaveButton, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jRemoveButton, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jCountryTextField, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                                            .addComponent(jCountryLabel)
+                                            .addComponent(jFindButton, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)))
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                                     .addGroup(jClientListPanelLayout.createParallelGroup()
-                                        .addComponent(jSnameLabel, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jSnameTextField, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jStreetLabel)
-                                        .addComponent(jStreetTextField, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jClientListPanelLayout.createSequentialGroup()
-                                    .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jFindButton, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                        .addComponent(jCountryTextField, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
-                                    .addGap(38, 38, 38)
-                                    .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jSaveButton, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                        .addComponent(jRemoveButton, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))))
-                            .addGap(14, 14, 14))
+                                        .addGroup(jClientListPanelLayout.createSequentialGroup()
+                                            .addComponent(jAccountNumLabel)
+                                            .addGap(111, 111, 111)
+                                            .addComponent(jSortCodeLabel))
+                                        .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 333, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jAmountLabel)
+                                        .addGroup(jClientListPanelLayout.createSequentialGroup()
+                                            .addComponent(jDepositButton)
+                                            .addGap(30, 30, 30)
+                                            .addComponent(jWithdrawButton))
+                                        .addComponent(jAmountTextField, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE))))
+                            .addGap(24, 24, 24))
                 );
                 jClientListPanelLayout.setVerticalGroup(
                     jClientListPanelLayout.createParallelGroup()
                         .addGroup(jClientListPanelLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
-                            .addGap(81, 81, 81))
+                            .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE))
                         .addGroup(jClientListPanelLayout.createSequentialGroup()
-                            .addGap(55, 55, 55)
-                            .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(jFnameLabel3)
-                                .addComponent(jSnameLabel))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(jFnameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSnameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addComponent(jDOBLabel)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jDOBTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(jHouseNumLabel)
-                                .addComponent(jStreetLabel))
+                            .addGap(14, 14, 14)
+                            .addGroup(jClientListPanelLayout.createParallelGroup()
+                                .addGroup(jClientListPanelLayout.createSequentialGroup()
+                                    .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jFnameLabel3)
+                                        .addComponent(jSnameLabel))
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jFnameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSnameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jDOBLabel)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jDOBTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jHouseNumLabel)
+                                        .addComponent(jStreetLabel)))
+                                .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(jHouseNumTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jStreetTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jStreetTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSortCodeLabel)
+                                .addComponent(jAccountNumLabel))
                             .addGap(18, 18, 18)
                             .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(jTownLabel)
-                                .addComponent(jPostCodeLabel))
+                                .addComponent(jPostCodeLabel)
+                                .addComponent(jAmountLabel))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(jTownTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPostCodeTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jPostCodeTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jAmountTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
-                            .addComponent(jCountryLabel)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jClientListPanelLayout.createParallelGroup()
-                                .addComponent(jCountryTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSaveButton, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jRemoveButton, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                                .addComponent(jFindButton, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
-                            .addGap(0, 62, Short.MAX_VALUE))
+                                .addGroup(jClientListPanelLayout.createSequentialGroup()
+                                    .addComponent(jCountryLabel)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jCountryTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jFindButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jClientListPanelLayout.createSequentialGroup()
+                                    .addGroup(jClientListPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jDepositButton, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                                        .addComponent(jSaveButton, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                                        .addComponent(jWithdrawButton, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jRemoveButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+                            .addGap(0, 123, Short.MAX_VALUE))
                 );
             }
             jMainTabbedPane.addTab("Client List", jClientListPanel);
@@ -660,7 +738,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addGroup(jHeadOfficePanelLayout.createSequentialGroup()
                                     .addGap(134, 134, 134)
                                     .addComponent(jHeadOfficeButton)))
-                            .addContainerGap(501, Short.MAX_VALUE))
+                            .addContainerGap(624, Short.MAX_VALUE))
                 );
                 jHeadOfficePanelLayout.setVerticalGroup(
                     jHeadOfficePanelLayout.createParallelGroup()
@@ -741,7 +819,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(jCityEditTextField)
                                 .addComponent(jStreetEditTextField)
                                 .addComponent(jHouseNoEditTextField, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE))
-                            .addContainerGap(336, Short.MAX_VALUE))
+                            .addContainerGap(459, Short.MAX_VALUE))
                 );
                 jEditHeadOfficePanelLayout.setVerticalGroup(
                     jEditHeadOfficePanelLayout.createParallelGroup()
@@ -795,11 +873,11 @@ public class MainJFrame extends javax.swing.JFrame {
                     jBranchListPenelLayout.createParallelGroup()
                         .addGroup(jBranchListPenelLayout.createSequentialGroup()
                             .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 271, Short.MAX_VALUE))
+                            .addGap(0, 394, Short.MAX_VALUE))
                         .addGroup(jBranchListPenelLayout.createSequentialGroup()
                             .addGap(206, 206, 206)
                             .addComponent(JBranchListDisplay, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(512, Short.MAX_VALUE))
+                            .addContainerGap(635, Short.MAX_VALUE))
                 );
                 jBranchListPenelLayout.setVerticalGroup(
                     jBranchListPenelLayout.createParallelGroup()
@@ -1060,7 +1138,7 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addContainerGap()
                             .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(panel3, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE))
+                            .addComponent(panel3, GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE))
                 );
                 jAddBranchPanelLayout.setVerticalGroup(
                     jAddBranchPanelLayout.createParallelGroup()
@@ -1077,11 +1155,11 @@ public class MainJFrame extends javax.swing.JFrame {
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
+                .addComponent(jMainPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jMainTabbedPane, GroupLayout.PREFERRED_SIZE, 848, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addComponent(jMainPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jMainTabbedPane, GroupLayout.PREFERRED_SIZE, 971, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(21, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
@@ -1089,7 +1167,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jMainTabbedPane, GroupLayout.PREFERRED_SIZE, 512, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jMainPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE))
+                    .addGap(0, 2, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -1306,11 +1384,12 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jRemoveButtonActionPressed(ActionEvent e) {
         Person removedPerson = new Person();
 
-        removedPerson.setFirstName(jFnameTextField.getText());
+        removedPerson.setFirstName(jFnameTextField.getText()); // move to constructor
         removedPerson.setSurname(jSnameTextField.getText());
         removedPerson.setDOB(jDOBTextField.getText());
 
-        BankClients.removeClient(BankClients.find(removedPerson));
+        //TODO
+        BankClients.removeClient(BankClients.find(new Person));
 
         BankClients.SaveToFile("Accounts/BankClients.txt");
     }
@@ -1388,7 +1467,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private IAddress theHeadOfficeAddress;
     private java.awt.Component[] jTabInMemory;
     private User theUser;
-
+    private DefaultListModel listModel;
+    private Account[] selectedAccounts;
     private CustomerList BankClients;
     
     private BranchList BankBranches;
@@ -1449,6 +1529,14 @@ public class MainJFrame extends javax.swing.JFrame {
     private JButton jSaveButton;
     private JButton jRemoveButton;
     private JButton jFindButton;
+    private JScrollPane scrollPane3;
+    private JList jAccountList;
+    private JLabel jAmountLabel;
+    private JTextField jAmountTextField;
+    private JButton jDepositButton;
+    private JButton jWithdrawButton;
+    private JLabel jSortCodeLabel;
+    private JLabel jAccountNumLabel;
     private JPanel jHeadOfficePanel;
     private JButton jHeadOfficeButton;
     private JTextArea jHeadOfficeTextArea;
